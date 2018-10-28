@@ -1,7 +1,4 @@
 ---
-title: "Test page"
-categories:
-  - Test
+title: "Test"
 ---
-
 첫 번째 포스트 테스트하기.
