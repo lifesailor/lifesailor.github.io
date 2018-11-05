@@ -67,6 +67,10 @@ p {
   margin-bottom: 1.3em;
 }
 
+.article-wrap p {
+  font-size: 14px; /* 16 is the default increase if you want it larger */
+}
+
 u,
 ins {
   text-decoration: none;
