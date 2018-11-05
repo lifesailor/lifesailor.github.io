@@ -1,7 +1,7 @@
 ---
 title: "Machine Learning Yearning 책 소개"
 categories:
-  - machine learning
+  - machine learning, book
 ---
 
 Andrew Ng의 Machine Learning Yearning 책 소개
