@@ -38,7 +38,7 @@ Andrew Ng의 Machine Learning Yearning 책 소개
   - End-to-end deep learning
   - Error analysis by parts  
 
-  위의 챕터는 목차는 대분류이고 실제 전체 챕터는 58챕터입니다.
+  위의 챕터는 목차는 대분류이고 실제 전체 챕터는 58챕터입니다. 각 챕터는 1-2 페이지로 이루어져있습니다.
 
 
 <br/>
