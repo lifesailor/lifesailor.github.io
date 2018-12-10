@@ -1,5 +1,5 @@
 ---
-title: "Spooky Author Identification"
+sptitle: "Spooky Author Identification"
 categories:
   - kaggle
 tags:
@@ -16,7 +16,7 @@ tags:
 해당 대회는 spooky(으스스한) 문장을 보고 해당 글의 저자를 세 명(Edgar Allan Poe, Mary Shelley, HP Lovecraft) 중 한 명으로 분류하는 문제입니다. 학습 데이터는 각 문장과 저자 쌍으로 이루어진 19579개이고, 테스트 데이터는 8392개입니다. 이 대회에서 평가 지표로 multi-class logarithmic loss를 사용합니다.
 
 ```
-- ![Image Alt multi-class-logarithmic-loss](/assets/images/spooky-author.png)
+![](assets/images/spooky-author.png "Loss Function")
 ```
 
 
