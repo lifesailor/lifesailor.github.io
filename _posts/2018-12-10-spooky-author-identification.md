@@ -7,8 +7,6 @@ tags:
 
 ---
 
-# Spooky Author Identification
-
 캐글 코리아의 이유한 님이 제시한 캐글 커리큘럼과 지금 진행 중인 Quora Insincere Questions Classification 공부를 하면서, 과거의 텍스트 분류 캐글 커널을 정리하고 있습니다. 그 첫 번째로 [Spooky Author Identification](https://www.kaggle.com/c/spooky-author-identification#description) Competition의 상위 1, 2등 커널을 정리했습니다.
 
 
