@@ -16,11 +16,15 @@ tags:
 
 
 
-![](../assets/images/spooky-author-identification/evaluation.png)
+![](/assets/images/spooky-author-identification/evaluation.png)
 
 
 
-train 데이터는 다음과 같습니다. ![](../assets/images/spooky-author-identification/train.png)
+train 데이터는 다음과 같습니다. 
+
+
+
+![](/assets/images/spooky-author-identification/train.png)
 
 
 
