@@ -16,11 +16,11 @@ tags:
 
 
 
-예시 데이터는 다음과 같습니다.
+![](../assets/images/spooky-author-identification/evaluation.png)
 
 
 
-![](../assets/images/spookt-author-identification/train.png)
+train 데이터는 다음과 같습니다. ![](../assets/images/spooky-author-identification/train.png)
 
 
 
