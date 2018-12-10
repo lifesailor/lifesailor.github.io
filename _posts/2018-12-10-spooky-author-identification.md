@@ -3,7 +3,7 @@ sptitle: "Spooky Author Identification"
 categories:
   - kaggle
 tags:
-  - kaggle, machine learning, text classification
+  - kaggle, machine-learning, natural-language-processing
 
 ---
 
