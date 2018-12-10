@@ -13,8 +13,9 @@ tags:
 
 
 
-해당 대회는 spooky(으스스한) 문장을 보고 해당 글의 저자를 세 명(Edgar Allan Poe, Mary Shelley, HP Lovecraft) 중 한 명으로 분류하는 문제입니다. 학습 데이터는 각 문장과 저자 쌍으로 이루어진 19579개이고, 테스트 데이터는 8392개입니다. 해당 대회는 Halloween Playground 대회로서 가장 추천을 많이 받은 Kernel 및 Discussion에 상금을 부여했습니다.
+해당 대회는 spooky(으스스한) 문장을 보고 해당 글의 저자를 세 명(Edgar Allan Poe, Mary Shelley, HP Lovecraft) 중 한 명으로 분류하는 문제입니다. 학습 데이터는 각 문장과 저자 쌍으로 이루어진 19579개이고, 테스트 데이터는 8392개입니다. 평가 지표로는 multi-class logarithmic loss를 사용했습니다.
 
 
 
- 상위 1,2등 커널은 다음의 [github](https://github.com/lifesailor/kaggle-best-kernel/tree/master/text-classification/1.spooky-author-identification)에서 확인할 수 있습니다.
+
+자세한 내용 및 상위 1,2등 커널은 [github](https://github.com/lifesailor/kaggle-best-kernel/tree/master/text-classification/1.spooky-author-identification)링크에서 확인할 수 있습니다.
