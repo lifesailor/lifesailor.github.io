@@ -28,9 +28,9 @@ train 데이터의 처음 5줄은 다음과 같습니다.
 
 
 
-참고) EAP = Edgar Allen Poe, HPL = HP Lovecraft, MWS = Mary Shelley
+* EAP = Edgar Allen Poe, HPL = HP Lovecraft, MWS = Mary Shelley
 
 
 
-이 대회는 Kaggle에서 직접 주최한 Playground 대회로  많은 사람들에게 도움이 되는 Kernel과 Discussion을 제공한 사람들에게 상금을 수여헀습니다. 해당 대회에 대한 자세한 내용 및 상위 1,2등 커널은 다음 [github](https://github.com/lifesailor/kaggle-best-kernel/tree/master/text-classification/1.spooky-author-identification) 또는 [kaggle](https://www.kaggle.com/c/spooky-author-identification#description)에서 확인할 수 있습니다.
+이 대회는 Kaggle에서 직접 주최한 Playground 대회로  많은 사람들에게 도움이 되는 Kernel과 Discussion을 제공한 사람들에게 상금을 수여했습니다. 해당 대회에 대한 자세한 내용 및 상위 1,2등 커널은 다음 [github](https://github.com/lifesailor/kaggle-best-kernel/tree/master/text-classification/1.spooky-author-identification) 또는 [kaggle](https://www.kaggle.com/c/spooky-author-identification#description)에서 확인할 수 있습니다.
 
