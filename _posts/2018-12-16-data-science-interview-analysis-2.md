@@ -1,5 +1,5 @@
 ---
-ㅇtitle: "Data Science Interview 정리 - 분석 일반(1)"
+title: "Data Science Interview 정리 - 분석 일반(1)"
 categories:
   - data science interview
 tags:
@@ -7,7 +7,7 @@ tags:
   - interview
 ---
 
-### 1. 좋은 feature란 무엇인가요? 이 feature의 성능을 판단하기 위해서는 어떤 방법이 있나요?
+## 1. 좋은 feature란 무엇인가요? 이 feature의 성능을 판단하기 위해서는 어떤 방법이 있나요?
 
 통계학과 머신러닝에서는 2가지 변수가 있습니다. 우리가 궁극적으로 알고 싶은 목적에 해당하는 Y 변수와 이를 설명하는 X 변수가 있습니다. Feature는 두 가지 중 X 변수를 의미합니다. 
 

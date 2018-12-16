@@ -1,5 +1,5 @@
 ---
-title: "Data Science Interview - 분석 일반(1)"
+title: "Data Science Interview 정리"
 categories:
   - data science interview
 tags:
