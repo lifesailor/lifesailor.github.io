@@ -13,7 +13,7 @@ tags:
 
 Logistic Regression은 확률을 fitting하는 것입니다. 하지만 확률 p는 [0, 1] 범위 안에 속하기에 Linear Regression을 바로 적용하기에 부적절했고 logit이라는 개념을 도입해서 p를 [0, 1] 변환해서 fitting한 뒤에 fitting을 합니다. 다음이 그 절차입니다.
 
-![](assets/images/logistic-regression/logistic.png)
+![](/assets/images/logistic-regression/logistic.png)
 
 [Logistic Regression](https://ko.wikipedia.org/wiki/%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1_%ED%9A%8C%EA%B7%80)
 
