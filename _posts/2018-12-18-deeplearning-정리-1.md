@@ -1,21 +1,23 @@
 ---
 title: 딥러닝 정리(1) - Logistic Regression
 categories:
-  - machine learning
   - deep learning
 tags:
   - machine learning
+  - deep learning
 ---
 
-딥러닝을 공부하면서 펀더멘탈이 부족하다고 느꼈습니다. 어설프게 할 수 있지만 제대로 알지 못한다는 생각이 들어서 다시 처음부터 공부하기로 마음 먹었습니다. 앞으로 딥러닝을 공부하면서 하나씩 정리해보고자 합니다. 정리 순서는 Andrew Ng의 [deeplearning.ai](https://www.coursera.org/specializations/deep-learning)와 Standford의 [CS231n](http://cs231n.stanford.edu/) [CS224n](http://cs224d.stanford.edu/)를 참고했습니다.
+앞으로 딥러닝을 공부하면서 하나씩 정리해보고자 합니다. 정리 순서는 Andrew Ng의 [deeplearning.ai](https://www.coursera.org/specializations/deep-learning)와 Standford의 [CS231n](http://cs231n.stanford.edu/) [CS224n](http://cs224d.stanford.edu/)를 참고했습니다.
 
 
 
 Logistic Regression은 확률을 fitting하는 것입니다. 하지만 확률 p는 [0, 1] 범위 안에 속하기에 Linear Regression을 바로 적용하기에 부적절했고 logit이라는 개념을 도입해서 p를 [0, 1] 변환해서 fitting한 뒤에 fitting을 합니다. 다음이 그 절차입니다.
 
-1. $odds = p(y=1) / p(y=0|x) = p(y=1|x) / (1 - p(y=1|x))$
-2. $logit(p) = log(p(y=1|x)) / (1 - p(y=1|x)) = w^Tx $ 
-3. $logitstic function = e^{w^Tx} / (1 + e^{w^Tx} ) = 1 / (1 + e^{-w^Tx})$
+$$odds = p(y=1) / p(y=0|x) = p(y=1|x) / (1 - p(y=1|x))$$
+
+$$logit(p) = log(p(y=1|x)) / (1 - p(y=1|x)) = w^Tx$$
+
+$$logitstic function = e^{w^Tx} / (1 + e^{w^Tx} ) = 1 / (1 + e^{-w^Tx})$$
 
 [Logistic Regression](https://ko.wikipedia.org/wiki/%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1_%ED%9A%8C%EA%B7%80)
 
