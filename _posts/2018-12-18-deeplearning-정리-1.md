@@ -7,23 +7,19 @@ tags:
   - deep learning
 ---
 
-앞으로 딥러닝을 공부하면서 하나씩 정리해보고자 합니다. 정리 순서는 Andrew Ng의 [deeplearning.ai](https://www.coursera.org/specializations/deep-learning)와 Standford의 [CS231n](http://cs231n.stanford.edu/) [CS224n](http://cs224d.stanford.edu/)를 참고했습니다.
+앞으로 딥러닝을 공부하면서 하나씩 정리해보고자 합니다. 정리 순서는 Andrew Ng의 [deeplearning.ai](https://www.coursera.org/specializations/deep-learning) 와 Standford의 [CS231n](http://cs231n.stanford.edu/) [CS224n](http://cs224d.stanford.edu/)를 참고했습니다.
 
 
 
 Logistic Regression은 확률을 fitting하는 것입니다. 하지만 확률 p는 [0, 1] 범위 안에 속하기에 Linear Regression을 바로 적용하기에 부적절했고 logit이라는 개념을 도입해서 p를 [0, 1] 변환해서 fitting한 뒤에 fitting을 합니다. 다음이 그 절차입니다.
 
-$$odds = p(y=1) / p(y=0|x) = p(y=1|x) / (1 - p(y=1|x))$$
-
-$$logit(p) = log(p(y=1|x)) / (1 - p(y=1|x)) = w^Tx$$
-
-$$logitstic function = e^{w^Tx} / (1 + e^{w^Tx} ) = 1 / (1 + e^{-w^Tx})$$
+![](assets/images/logistic-regression/logistic.png)
 
 [Logistic Regression](https://ko.wikipedia.org/wiki/%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1_%ED%9A%8C%EA%B7%80)
 
 
 
-머신러닝을 배울 때는 logistic regression을 sigmoid 함수(logistic 함수)를 적용해서 분류 문제를 해결하는 방법으로 소개됩니다. Logistic Regression 학습 과정은 여러가지 최적화 방법을 사용할 수 있지만 딥러닝의 전 단계로 logistic regression을 배울 때는 gradient descent 방법으로 최적화를 합니다. 비용 함수는 Maximum Likelihood Estimator에 기반한 cross entropy loss를 사용합니다.
+하지만 머신러닝을 배울 때는 logistic regression을 단순히 sigmoid 함수(logistic 함수)를 적용해서 분류 문제를 해결하는 방법으로 소개됩니다. Logistic Regression 학습 과정은 여러가지 최적화 방법을 사용할 수 있지만 딥러닝의 전 단계로 logistic regression을 배울 때는 gradient descent 방법으로 최적화를 합니다. 비용 함수는 Maximum Likelihood Estimator에 기반한 cross entropy loss를 사용합니다.
 
 
 
