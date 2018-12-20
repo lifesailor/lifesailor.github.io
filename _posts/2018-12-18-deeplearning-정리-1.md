@@ -110,7 +110,7 @@ def predict(X, Y, W, b):
             predicted_class[i, 0] = 0
     return predicted_class
 
-# 7. 성능 점검
+# 7. Result
 # train
 prediction = predict(X_train, y_train, W, b)
 np.mean(prediction == y_train)
