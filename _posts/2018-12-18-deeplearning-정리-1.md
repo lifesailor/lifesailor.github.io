@@ -7,7 +7,7 @@ tags:
   - deep learning
 ---
 
-앞으로 딥러닝을 공부하면서 하나씩 정리해보고자 합니다. 딥러닝 개념은 정리된 블로그는 많지만 코드가 정리된 곳은 많지 않다고 느껴서 코드 위주로 정리하고자 합니다. 정리는 Andrew Ng 교수님의 [deeplearning.ai](https://www.coursera.org/courses?query=deeplearning.ai), [CS231n](http://cs231n.stanford.edu/), [CS224n](http://web.stanford.edu/class/cs224n/)을 참고했습니다. 
+앞으로 딥러닝을 공부하면서 하나씩 정리해보고자 합니다. 딥러닝 개념은 정리된 블로그는 많지만 코드가 정리된 곳은 많지 않다고 느껴서 코드 위주로 정리하고자 합니다. 혹시 잘못된 부분이 있으면 말씀해주세요. 정리는 Andrew Ng 교수님의 [deeplearning.ai](https://www.coursera.org/courses?query=deeplearning.ai), [CS231n](http://cs231n.stanford.edu/), [CS224n](http://web.stanford.edu/class/cs224n/)을 참고했습니다. 
 
 
 
@@ -52,7 +52,7 @@ def weight_initializer(X):
 # weight initializer
 W, b = weight_initializer(X_train)
 
-# 3. forward propagate
+# 3. forware propagation 함수 구현
 def forward(X, Y, W, b):
     # linear
     Z = np.dot(X, W) + b
@@ -65,7 +65,7 @@ def forward(X, Y, W, b):
     cost = -1/m * np.sum((Y * np.log(A) + (1-Y) * np.log(1-A)))
     return A, cost
 
-# 4. propagate - forward, backward
+# 4. forward - backward propagation
 def propagate(X, Y, W, b, learning_rate=0.001):
     m = X.shape[0]
     
@@ -76,7 +76,7 @@ def propagate(X, Y, W, b, learning_rate=0.001):
     dw = 1/m * np.dot(X.T, A - Y)
     db = 1/m * np.sum(A - Y)
     
-    # update
+    # gradient update
     W = W - learning_rate * dw
     b = b - learning_rate * db
 
@@ -96,7 +96,7 @@ for i in range(EPOCH):
     if i % 1000 == 0:
         print(cost)
 
-### Test
+# 6. Test
 def predict(X, Y, W, b):
     prediction, cost = forward(X, Y, W, b)
     actual = Y
@@ -110,6 +110,7 @@ def predict(X, Y, W, b):
             predicted_class[i, 0] = 0
     return predicted_class
 
+# 7. 성능 점검
 # train
 prediction = predict(X_train, y_train, W, b)
 np.mean(prediction == y_train)
