@@ -7,13 +7,17 @@ tags:
   - deep learning
 ---
 
-앞으로 딥러닝을 공부하면서 하나씩 정리해보고자 합니다. 딥러닝 개념은 정리된 블로그는 많지만 코드가 정리된 곳은 많지 않다고 느껴서 코드 위주로 정리하고자 합니다. 코드에는 한글 주석을 달아두었습니다. 
+앞으로 딥러닝을 공부하면서 하나씩 정리해보고자 합니다. 딥러닝 개념은 정리된 블로그는 많지만 코드가 정리된 곳은 많지 않다고 느껴서 코드 위주로 정리하고자 합니다. 정리는 Andrew Ng 교수님의 [deeplearning.ai](https://www.coursera.org/courses?query=deeplearning.ai), [CS231n](http://cs231n.stanford.edu/), [CS224n](http://web.stanford.edu/class/cs224n/)을 참고했습니다. 
 
 
 
 Logistic Regression은 확률을 fitting하는 것입니다. 하지만 확률 p는 [0, 1] 범위 안에 속하기에 Linear Regression을 바로 적용하기에 부적절했고 logit이라는 개념을 도입해서 p를 [0, 1] 변환해서 fitting한 뒤에 fitting을 합니다. 다음이 그 절차입니다.
 
+<br/>
+
 ![](/assets/images/logistic-regression/logistic.png)
+
+<br/>
 
 하지만 머신러닝을 배울 때는 logistic regression을 단순히 sigmoid 함수(logistic 함수)를 적용해서 분류 문제를 해결하는 방법으로 소개됩니다. 
 
