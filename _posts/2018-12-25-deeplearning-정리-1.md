@@ -151,3 +151,4 @@ np.mean(prediction == y_train)
 prediction = predict(X_test, y_test, W, b)
 np.mean(prediction == y_test)
 ```
+
