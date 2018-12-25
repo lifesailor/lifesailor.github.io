@@ -15,7 +15,7 @@ tags:
 
 <br/>
 
-Two Layer Network은 Logistic Regression과 한 층을 더 쌓았다는 점에서 다릅니다. 그래서 순전파를 2번 하고 역전파도 2번 합니다. 비록 위 그림에서 선형 결합과 활성화 함수를 구분지어서 표현해서 층이 더 많아보이지만, 위 그림은 (Z1, A1)을 묶어서 한 층, (Z2, A2)을 묶어서 표현할 수 있는 2층의 Neural Network입니다. 여기에서는 Logistic Regression과 마찬가지로 이진 분류를 하는 신경망을 가정했습니다. 
+Two Layer Network은 Logistic Regression과 한 층을 더 쌓았다는 점에서 다릅니다. 그래서 순전파를 2번 하고 역전파도 2번 합니다. 위 그림에서 선형 결합과 활성화 함수를 구분지어서 표현해서 층이 더 많아보이지만, (Z1, A1), (Z2, A2), 총 2층의 Neural Network입니다. 
 
 <br/>
 
