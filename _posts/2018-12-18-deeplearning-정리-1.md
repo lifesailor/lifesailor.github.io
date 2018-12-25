@@ -19,41 +19,41 @@ Logistic Regression은 어떤 사건 A가 일어날 확률을 fitting하는 것�
 
 <br/>
 
-아래는 Logistic Regression의 역전파 과정입니다. 저는 Logistic Regression을 처음 구현할 때 역전파 과정에서 dZ를 구하는 것이 가장 헷갈립니다.
+아래는 Logistic Regression의 역전파 과정입니다. 
 
+<br/>
 
+$Chain Rule: dL / dZ = dL / dA * dA /dZ - (1)$
 
-$$Chain Rule: dL / dZ = dL / dA * dA /dZ - (1)$$
+$Cross Entropy Loss:  L =- (Y * log(A) + (1-Y) * log(1- A)) - (2)$
 
-$$Cross Entropy Loss:  L =- (Y * log(A) + (1-Y) * log(1- A)) - (2)$$
+$dL / dA = -(Y/A - (1 - Y) / (1- A)) - (3)$
 
-$$dL / dA = -(Y/A - (1 - Y) / (1- A)) - (3)$$
+$dA / dZ = A * (1 - A) - (4)$
 
-$$dA / dZ = A * (1 - A) - (4)$$
+$dL / dZ = A - Y  - (5)$ 
 
-$$dL / dZ = A - Y  - (5)$$ 
-
-
+<br/>
 
 역전파를 구현할 때는 cross entropy loss에 1/m에 곱하지 않은 Loss Vector를 역전파한다는 것이 중요합니다. 출력하는 Loss 값은 1/m을 곱해서 각 training example 별 평균 loss를 계산합니다.
 
 
 
-$$loss = -1/m * (Y*log(A) + (1-Y) *log(1-A))$$
+$Loss = -1/m * (Y*log(A) + (1-Y) *log(1-A))$
 
 
 
 하지만 역전파를 할 때는 Loss Vector 내에 각각의 training example의 loss 정보를 유지한 채로 역전파합니다. 그렇기 때문에 Loss Vector에는 1/m을 곱하지 않습니다. 대신 dW, db를 구할 때 1/m을 곱해서 평균 gradient를 계산하게 됩니다.
 
+<br/>
 
+$dL/dZ = A - Y$
 
-$$dL/dZ = A - Y$$
+$dW = 1/m * X^T(A - Y) $
 
-$$dW = 1/m * X^T(A - Y) $$
+$ db = 1/m * \sum_i(a_i - y_i) $
 
-$$ db = 1/m * \sum_i(a_i - y_i) $$
-
-
+<br/>
 
 아래는 Logistic Regression 구현한 코드입니다.
 
