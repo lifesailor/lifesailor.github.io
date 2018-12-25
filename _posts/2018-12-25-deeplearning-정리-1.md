@@ -12,29 +12,7 @@ tags:
 
 
 
-Logistic Regression은 어떤 사건 A가 일어날 확률을 fitting하는 것입니다. 확률 P는 [0, 1] 범위 안에 속하기에 Linear Regression을 바로 적용하기에 부적합니다. 그래서 logit이라는 개념을 도입해서 확률 P를 [0, 1] 사이의 값으로 변환해서 fitting을 합니다.
-
 Logistic Regression 구현 시 어려운 부분은 역전파 부분입니다. 아래는 Logistic Regression의 역전파 과정입니다. 
-
-
-
-<br/>
-
-$odds = p(y = 1)/p(y = 0|x) = p(y=1|x)/(1-p(y=1|x))$
-
-$logit(p) = log(p(y=1|x))/p(1-p(y=1|x)) = w^tx$
-
-
-
-logit(p) 식을 p(y = 1|x)를 기준으로 정리하면 
-
-$p(y=1|x) = e^{w^{t}x}/(1 + e^{w^{t}x}) = 1 / (1+ e^{-w^{t}x})$ 
-
-이고 위 식이 익숙한 sigmoid 함수입니다.
-
-<br/>
-
-
 
 <br/>
 
@@ -52,11 +30,11 @@ $dL / dZ = A - Y  - (5)$
 
 역전파를 구현할 때는 cross entropy loss에 1/m에 곱하지 않은 Loss Vector를 역전파한다는 것이 중요합니다. 출력하는 Loss 값은 1/m을 곱해서 각 training example 별 평균 loss를 계산합니다.
 
-<br/>
+
 
 $Loss = -1/m * (Y*log(A) + (1-Y) *log(1-A))$
 
-<br/>
+
 
 하지만 역전파를 할 때는 Loss Vector 내에 각각의 training example의 loss 정보를 유지한 채로 역전파합니다. 그렇기 때문에 Loss Vector에는 1/m을 곱하지 않습니다. 대신 dW, db를 구할 때 1/m을 곱해서 평균 gradient를 계산하게 됩니다.
 
