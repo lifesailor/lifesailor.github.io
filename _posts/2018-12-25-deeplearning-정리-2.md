@@ -7,7 +7,7 @@ tags:
   - deep learning
 ---
 
-Two Layer Network은 Logistic Regression과 한 층을 더 쌓았다는 점에서 다릅니다. 그래서 순전파를 2번 하고 역전파도 2번 합니다. 여기에서는 Logistic Regression과 마찬가지로 이진 분류를 하는 신경망을 가정했습니다.
+앞으로 딥러닝을 공부하면서 하나씩 정리해보고자 합니다. 딥러닝 개념은 정리된 블로그는 많지만 구현과 함께 정리된 곳은 많지 않아서 구현을 중심으로 정리할 생각입니다. 정리와 코드는 Andrew Ng 교수님의 [deeplearning.ai](https://www.coursera.org/courses?query=deeplearning.ai) 강의를 참고했습니다. 
 
 <br/>
 
@@ -15,7 +15,7 @@ Two Layer Network은 Logistic Regression과 한 층을 더 쌓았다는 점에�
 
 <br/>
 
-위 그림에서는 선형 결합과 활성화 함수를 구분지어서 표현해서 층이 더 많아보이지만 (Z1, A1), (Z2, A2) 총 2층의 Neural Network입니다. 
+Two Layer Network은 Logistic Regression과 한 층을 더 쌓았다는 점에서 다릅니다. 그래서 순전파를 2번 하고 역전파도 2번 합니다. 비록 위 그림에서 선형 결합과 활성화 함수를 구분지어서 표현해서 층이 더 많아보이지만, 위 그림은 (Z1, A1)을 묶어서 한 층, (Z2, A2)을 묶어서 표현할 수 있는 2층의 Neural Network입니다. 여기에서는 Logistic Regression과 마찬가지로 이진 분류를 하는 신경망을 가정했습니다. 
 
 <br/>
 
@@ -25,7 +25,7 @@ Two Layer Network 역전파 구현 시 Logistic Regression과 달라지는 부�
 
 $dL/dA1 = dL/dZ2 * dZ2 / dA1 = dL/dZ2 * {W2}^T$
 
-$dL/dZ1 = dL / dA1 * dA1/dZ1 = dL/dA1 * relu'(Z1)$
+$dL/dZ1 = dL / dA1 * dA1/dZ1 = dL/dA1 * relu'(Z1)​$
 
 <br/>
 
@@ -43,16 +43,19 @@ from matplotlib import pyplot as plt
 
 from util import relu, relu_backward, sigmoid, sigmoid_backward
 
+np.random.seed(42)
+
+
 class TwoLayerNetwork(object):
     def __init__(self, hidden_dim=128):
         # W1, b1, W2, b2
-        self.parameters = {} 
-        
+        self.parameters = {}
+
         # dW1, db1, dW2, db2
-        self.grads = {} 
-        
+        self.grads = {}
+
         # X, Z1, A1, Z2, A2
-        self.caches = {} 
+        self.caches = {}
 
         # hidden dim
         self.hidden_dim = hidden_dim
@@ -100,18 +103,18 @@ class TwoLayerNetwork(object):
 
         return A2
 
-	def compute_cost(self, AL, Y):
+    def compute_cost(self, AL, Y):
         """
         cost 계산
-        
-        :param AL: 마지막 활성화 값(A2) 
+
+        :param AL: 마지막 활성화 값(A2)
         :param Y: 정답
-        :return: 
+        :return:
         """
 
         assert AL.shape[0] == Y.shape[0]
         m = Y.shape[0]
-        cost = - 1/m * np.sum(Y * np.log(AL) + (1 - Y) * np.log(1 - AL))
+        cost = - 1 / m * np.sum(Y * np.log(AL) + (1 - Y) * np.log(1 - AL))
 
         return cost
 
@@ -126,24 +129,23 @@ class TwoLayerNetwork(object):
 
         m = Y.shape[0]
 
-        dA2 = -(np.divide(Y, AL) - np.divide(1-Y, 1-AL))
+        dA2 = -(np.divide(Y, AL) - np.divide(1 - Y, 1 - AL))
         dZ2 = sigmoid_backward(self.caches['Z2'], dA2)
 
-        dW2 = 1/m * np.dot(self.caches['A1'].T, dZ2)
-        db2 = 1/m * np.sum(dZ2, axis=0, keepdims=True)
+        dW2 = 1 / m * np.dot(self.caches['A1'].T, dZ2)
+        db2 = 1 / m * np.sum(dZ2, axis=0, keepdims=True)
 
         dA1 = np.dot(dZ2, self.parameters['W2'].T)
         dZ1 = relu_backward(self.caches['Z1'], dA1)
 
-        dW1 = 1/m * np.dot(self.caches['A0'].T, dZ1)
-        db1 = 1/m * np.sum(dZ1, axis=0, keepdims=True)
+        dW1 = 1 / m * np.dot(self.caches['A0'].T, dZ1)
+        db1 = 1 / m * np.sum(dZ1, axis=0, keepdims=True)
 
         self.grads['dW2'] = dW2
         self.grads['db2'] = db2
         self.grads['dW1'] = dW1
         self.grads['db1'] = db1
 
-        
     def update_parameter(self, learning_rate=0.01):
         """
         파라미터 업데이트
@@ -170,13 +172,30 @@ class TwoLayerNetwork(object):
         AL = self.forward(X)
         cost = self.compute_cost(AL, Y)
         self.backward(AL, Y)
-        self.update_parameter()
+        self.update_parameter(learning_rate=learning_rate)
         return cost
 
-    
+
+def predict(AL):
+    """
+
+    :param AL:
+    :return:
+    """
+    prediction = AL.copy()
+    prediction[AL >= 0.5] = 1
+    prediction[AL < 0.5] = 0
+
+    return prediction
+
+
+def caculate_accuracy(AL, Y):
+    return np.average(AL == Y)
+
+
 if __name__ == "__main__":
-    
-    # 1. 데이터 로드
+
+    # 1. sklearn 에서 데이터 불러오기
     data = load_breast_cancer()
     X, y = data['data'], data['target']
     y = y.reshape(-1, 1)
@@ -184,71 +203,81 @@ if __name__ == "__main__":
     # 2. 전처리
     # train test split
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y)
-	
-    # min max scaling
+
+    # scaling
     scaler = MinMaxScaler()
     preprocssed_X_train = scaler.fit_transform(X_train)
     preprocssed_X_test = scaler.transform(X_test)
 
-    # set hyperparameter
-    BATCH_SIZE = 32
-    EPOCHS = 300
-    LEARNING_RATE = 0.1
+    # 3. 훈련
 
-    # 3. 모델 정의
-    two_layer_network = TwoLayerNetwork()
-    
-    # initialize weight
+    # 모델 정의
+    two_layer_network = TwoLayerNetwork(hidden_dim=128)
+
+    # 파라미터 초기화
     two_layer_network.initialize_weight(X)
-    
-    # train history, test history
+
+    # hyperparameter
+    BATCH_SIZE = 32
+    EPOCHS = 1000
+    LEARNING_RATE = 0.01
+
     train_history = []
     train_acc = []
 
     test_history = []
     test_acc = []
 
-    # 4. 학습
+    # train model
     for i in range(EPOCHS):
-        num_iterations = X_train.shape[0] // BATCH_SIZE
+        num_iterations = preprocssed_X_train.shape[0] // BATCH_SIZE
         epoch_cost = 0
-		
-        # 데이터를 batch로 나누기
+
         for j in range(num_iterations):
             X_train_batch = preprocssed_X_train[j * BATCH_SIZE:(j+1) * BATCH_SIZE, :]
             y_train_batch = y_train[j * BATCH_SIZE:(j+1)*BATCH_SIZE, 0].reshape(-1, 1)
 
             if j == num_iterations - 1:
-                X_train_batch = preprocssed_X_train[j * BATCH_SIZE:, :]
+                X_train_batch = X_train[j * BATCH_SIZE:, :]
                 y_train_batch = y_train[j * BATCH_SIZE:, 0].reshape(-1, 1)
-			
-            # train
-            cost = two_layer_network.train(X_train_batch, y_train_batch, learning_rate=LEARNING_RATE)
-            # loss by batch
+
+            cost = two_layer_network.train(X_train_batch, y_train_batch,
+                                           learning_rate=LEARNING_RATE)
             epoch_cost += cost
-        
-        # average loss by epoch
         epoch_cost /= X_train.shape[0]
 
-      	# train cost
-        train_history.append(epoch_cost)
+        if i % 10 == 0:
+            print(str(i+1) + " 번째 cost : ", epoch_cost)
 
-        # test cost
-        AL = two_layer_network.forward(preprocssed_X_test)
-        cost = two_layer_network.compute_cost(AL, y_test)
+        train_history.append(epoch_cost)
+        prediction = predict(two_layer_network.forward(preprocssed_X_train))
+        acc = caculate_accuracy(prediction, y_train)
+        train_acc.append(acc)
+
+        # test
+        test_AL = two_layer_network.forward(preprocssed_X_test)
+        cost = two_layer_network.compute_cost(test_AL, y_test)
         test_history.append(cost)
 
-        if i % 10 == 0:
-            print("EPOCH: ", str(i))
-            print("COST: ", epoch_cost)
+        prediction = predict(test_AL)
+        acc = caculate_accuracy(prediction, y_test)
+        test_acc.append(acc)
 
-    # 5. 결과 출력
+    # 4. 출력
     plt.plot(train_history, label='train')
     plt.plot(test_history, label='test')
     plt.xlabel("EPOCH")
     plt.ylabel("COST")
     plt.legend()
     plt.show()
+
+    plt.plot(train_acc, label='train')
+    plt.plot(test_acc, label='test')
+    plt.xlabel("EPOCH")
+    plt.ylabel("ACC")
+    plt.legend()
+    plt.show()
+
 ```
 
 ```python
@@ -257,7 +286,6 @@ util.py
 """
 
 import numpy as np
-
 
 def relu(X):
     """
@@ -270,6 +298,7 @@ def relu(X):
     A = np.copy(X)
     A[A < 0] = 0
     return A
+
 
 def relu_backward(Z, dA):
     """
@@ -296,7 +325,7 @@ def sigmoid(X):
     :return: sigmoid(X)
     """
 
-    return 1 / ((1 + np.exp(-X)) + 1e-5
+    return 1 / ((1 + np.exp(-X)) + 1e-5)
 
 
 def sigmoid_backward(Z, dA):
@@ -310,7 +339,8 @@ def sigmoid_backward(Z, dA):
     """
 
     AL = sigmoid(Z)
-    dZ = AL * (1 - AL) * dA
+    sigmoid_derivative = AL * (1 - AL)
+    dZ = sigmoid_derivative * dA
     return dZ
 ```
 
