@@ -10,7 +10,11 @@ tags:
 
 앞으로 딥러닝을 공부하면서 하나씩 정리해보고자 합니다. 딥러닝 개념은 정리된 블로그는 많지만 코드가 정리된 곳은 많지 않다고 느껴서 구현 위주로 정리하고자 합니다. 정리와 코드는 Andrew Ng 교수님의 [deeplearning.ai](https://www.coursera.org/courses?query=deeplearning.ai) 강의를 참고했습니다. 혹시 잘못된 부분이 있으면 말씀해주세요. 
 
+<br/>
 
+![](/assets/images/logistic-regression/logistic.png)
+
+<br/>
 
 Logistic Regression 구현 시 어려운 부분은 역전파 부분입니다. 아래는 Logistic Regression의 역전파 과정입니다. 
 
@@ -30,11 +34,11 @@ $dL / dZ = A - Y  - (5)$
 
 역전파를 구현할 때는 cross entropy loss에 1/m에 곱하지 않은 Loss Vector를 역전파한다는 것이 중요합니다. 출력하는 Loss 값은 1/m을 곱해서 각 training example 별 평균 loss를 계산합니다.
 
-
+<br/>
 
 $Loss = -1/m * (Y*log(A) + (1-Y) *log(1-A))$
 
-
+<br/>
 
 하지만 역전파를 할 때는 Loss Vector 내에 각각의 training example의 loss 정보를 유지한 채로 역전파합니다. 그렇기 때문에 Loss Vector에는 1/m을 곱하지 않습니다. 대신 dW, db를 구할 때 1/m을 곱해서 평균 gradient를 계산하게 됩니다.
 
