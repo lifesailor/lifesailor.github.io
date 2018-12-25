@@ -14,7 +14,11 @@ tags:
 
 Logistic Regression은 어떤 사건 A가 일어날 확률을 fitting하는 것입니다. 확률 P는 [0, 1] 범위 안에 속하기에 Linear Regression을 바로 적용하기에 부적합니다. 그래서 logit이라는 개념을 도입해서 확률 P를 [0, 1] 사이의 값으로 변환해서 fitting을 합니다.
 
+Logistic Regression 구현 시 어려운 부분은 역전파 부분입니다. 아래는 Logistic Regression의 역전파 과정입니다. 
 
+
+
+<br/>
 
 $odds = p(y = 1)/p(y = 0|x) = p(y=1|x)/(1-p(y=1|x))$
 
@@ -30,7 +34,7 @@ $p(y=1|x) = e^{w^{t}x}/(1 + e^{w^{t}x}) = 1 / (1+ e^{-w^{t}x})$
 
 <br/>
 
-Logistic Regression 구현 시 어려운 부분은 역전파 부분입니다. 아래는 Logistic Regression의 역전파 과정입니다. 
+
 
 <br/>
 
