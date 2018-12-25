@@ -15,11 +15,21 @@ Logistic Regression은 어떤 사건 A가 일어날 확률을 fitting하는 것�
 
 <br/>
 
-![](/assets/images/logistic-regression/logistic.png)
+$odds = p(y = 1)/p(y = 0|x) = p(y=1|x)/(1-p(y=1|x))$
+
+$logit(p) = log(p(y=1|x))/p(1-p(y=1|x)) = w^tx$
 
 <br/>
 
-아래는 Logistic Regression의 역전파 과정입니다. 
+logit(p) 식을 p(y = 1|x)를 기준으로 정리하면 
+
+$p(y=1|x) = e^{w^{t}x}/(1 + e^{w^{t}x}) = 1 / (1+ e^{-w^{t}x})$ 이고
+
+위 식이 익숙한 sigmoid 함수입니다.
+
+<br/>
+
+Logistic Regression 구현 시 어려운 부분은 역전파 부분입니다. 아래는 Logistic Regression의 역전파 과정입니다. 
 
 <br/>
 
