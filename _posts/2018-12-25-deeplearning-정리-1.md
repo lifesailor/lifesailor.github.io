@@ -11,7 +11,7 @@ tags:
 
 <br/>
 
-![](/assets/images/logistic-regression/logistic.png)
+![](/assets/images/deep-learning/logistic-regression/logistic.png)
 
 <br/>
 
@@ -51,7 +51,7 @@ $ db = 1/m * \sum_i(a_i - y_i) $
 
 <br/>
 
-아래는 Logistic Regression 구현한 코드입니다.
+아래는 Logistic Regression을 구현한 코드입니다.
 
 ```python
 import numpy as np

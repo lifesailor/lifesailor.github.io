@@ -11,7 +11,7 @@ tags:
 
 <br/>
 
-![](/assets/images/two-layer-network/network.png)
+![](/assets/images/deep-learning/two-layer-network/network.png)
 
 <br/>
 
@@ -19,17 +19,39 @@ Two Layer Network은 Logistic Regression과 한 층을 더 쌓았다는 점에�
 
 <br/>
 
-Two Layer Network 역전파 구현 시 Logistic Regression과 달라지는 부분은 위 그림에서 빨간색 글씨로 적은 dL/dA1, dL/dZ1 부분입니다. 은닉 층의 활성화 함수에 대한 역전파를 하기 때문입니다. 나머지는 Logistic Regression과 크게 달라지는 부분은 없습니다.
+Two Layer Network 역전파 구현 시 Logistic Regression 구현과 달라지는 부분은 위 그림에서 빨간색 글씨로 적은 dL/dA1, dL/dZ1 부분입니다. 은닉 층의 활성화 함수에 대한 역전파를 하기 때문입니다. 해당 부분의 수식과 코드는 다음과 같습니다.
 
 <br/>
 
 $dL/dA1 = dL/dZ2 * dZ2 / dA1 = dL/dZ2 * {W2}^T$
 
-$dL/dZ1 = dL / dA1 * dA1/dZ1 = dL/dA1 * relu'(Z1)​$
+$dL/dZ1 = dL / dA1 * dA1/dZ1 = relu'(Z1) * dL/dA1$
+
+```python
+# 은닉층 역전파
+dA1 = np.dot(dZ2, self.parameters['W2'].T)
+dZ1 = relu_backward(self.caches['Z1'], dA1)
+
+def relu_backward(Z, dA):
+    """
+    relu backward
+
+    :param Z:
+    :param dA:
+    :return: dZ = relu'(Z) * dA
+    """
+
+    relu_derivative = np.copy(Z)
+    relu_derivative[Z < 0] = 0
+    relu_derivative[Z > 0] = 1
+    dZ = relu_derivative * dA
+
+    return dZ
+```
 
 <br/>
 
-아래는 Two Layer Network를 구현한 코드입니다. 
+역전파 과정 외의 나머지 부분은 위의 그림의 수식을 그대로 구현하면 됩니다. 아래 train 함수를 보면 전체 학습 과정이 정리되어 있습니다. 네트워크는 순전파, 오차함수 계산, 역전파, 파라미터 업데이트를 반복하면서 가중치를 학습해나갑니다.
 
 ```python
 """
