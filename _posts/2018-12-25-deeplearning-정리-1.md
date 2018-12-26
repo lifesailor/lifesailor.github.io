@@ -51,7 +51,7 @@ $ db = 1/m * \sum_i(a_i - y_i) $
 
 <br/>
 
-아래는 Logistic Regression을 구현한 코드입니다.
+아래는 Logistic Regression을 구현한 코드입니다. 한글로 주석을 달아두었습니다. 혹시 궁금하신 점이나 잘못된 부분이 있다면 말씀해주세요.
 
 ```python
 import numpy as np
@@ -100,20 +100,21 @@ def forward(X, Y, W, b):
     # linear - Z = XW + b
     Z = np.dot(X, W) + b
 
-    # sigmoid activation
+    # sigmoid
     A = sigmoid(Z)
 
-    # cost
+    # 데이터 개수
     m = X.shape[0]
 
-    # cross entropy loss
+    # 오차
     cost = -1 / m * np.sum((Y * np.log(A) + (1 - Y) * np.log(1 - A)))
+
     return A, cost
 
 
 def propagate(X, Y, W, b, learning_rate=0.001):
     """
-    1) 순전파
+    1) 순전파 및 오차함수 계산
     2) 역전파
     3) 파라미터 업데이트
 
@@ -127,14 +128,14 @@ def propagate(X, Y, W, b, learning_rate=0.001):
 
     m = X.shape[0]
 
-    # forward
+    # 순전파
     A, cost = forward(X, Y, W, b)
 
-    # backward - dZ = dL/dA * dA/dZ = (A - Y)
+    # 역전파 - dZ = dL/dA * dA/dZ = (A - Y)
     dw = 1 / m * np.dot(X.T, A - Y)
     db = 1 / m * np.sum(A - Y)
 
-    # parameter update
+    # 파라미터 업데이트
     W = W - learning_rate * dw
     b = b - learning_rate * db
 
@@ -144,8 +145,18 @@ def propagate(X, Y, W, b, learning_rate=0.001):
 
 
 def predict(X, Y, W, b):
+    """
+    0 또는 1의 값으로 예측한다.
+
+    :param X:
+    :param Y:
+    :param W:
+    :param b:
+    :return:
+    """
+
+    # 예측 확률
     prediction, cost = forward(X, Y, W, b)
-    actual = Y
 
     # 예측 확률을 [0, 1]로 반올림한다.
     predicted_class = np.zeros((prediction.shape[0], 1))
@@ -159,7 +170,14 @@ def predict(X, Y, W, b):
 
 
 def calculate_accuracy(prediction, Y):
-    return np.average(prediction == Y)
+    """
+    평균 정확도 계산
+
+    :param prediction:
+    :param Y:
+    :return:
+    """
+    return np.mean(prediction == Y)
 
 
 if __name__ == "__main__":
@@ -170,22 +188,20 @@ if __name__ == "__main__":
     y = y.reshape(-1, 1)
 
     # 2. 전처리
-    # train test split
+    # train test 나누기
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y)
 
-    # scaling
+    # 각 특성별 크기를 [0, 1]로 바꾼다.
     scaler = MinMaxScaler()
     X_train = scaler.fit_transform(X_train)
     X_test = scaler.transform(X_test)
 
     # 3. 훈련
-    # parameter 초기화
+    # 파라미터 초기화
     W, b = weight_initializer(X_train)
-
-    # reshape
     y_train = y_train.reshape(-1, 1)
 
-    # set hyperparameter
+    # 하이퍼 파라미터 세팅
     BATCH_SIZE = 32
     EPOCH = 1000
     LEARNING_RATE = 0.01
@@ -196,11 +212,13 @@ if __name__ == "__main__":
     train_acc = []
     test_acc = []
 
-    # train
+    # 학습
     for i in range(EPOCH):
+        # 에폭 당 배치 개수
         num_iterations = X_train.shape[0] // BATCH_SIZE
         epoch_cost = 0
 
+        # 배치 학습
         for j in range(num_iterations):
             X_train_batch = X_train[j * BATCH_SIZE:(j + 1) * BATCH_SIZE, :]
             y_train_batch = y_train[j * BATCH_SIZE:(j + 1) * BATCH_SIZE, 0].reshape(-1, 1)
@@ -212,15 +230,18 @@ if __name__ == "__main__":
             W, b, cost = propagate(X_train_batch, y_train_batch, W, b, learning_rate=LEARNING_RATE)
             epoch_cost += cost
 
+        # 에폭 평균 오차
         epoch_cost /= X_train.shape[0]
 
         if i % 10 == 0:
             print(str(i + 1) + " 번째 cost : ", epoch_cost)
 
+        # train 오차 및 정확도
         train_history.append(epoch_cost)
         train_prediction = predict(X_train, y_train, W, b)
         train_acc.append(calculate_accuracy(train_prediction, y_train))
 
+        # test 오차 및 정확도
         _, test_cost = forward(X_test, y_test, W, b)
         test_history.append(test_cost)
         test_prediction = predict(X_test, y_test, W, b)
@@ -240,5 +261,6 @@ if __name__ == "__main__":
     plt.ylabel("Accuracy")
     plt.legend()
     plt.show()
+
 ```
 

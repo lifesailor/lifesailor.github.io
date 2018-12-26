@@ -29,7 +29,7 @@ $dL/dZ1 = dL / dA1 * dA1/dZ1 = relu'(Z1) * dL/dA1$
 
 <br/>
 
-아래는 Two Layer Network를 구현한 코드입니다.
+아래는 Two Layer Network를 구현한 코드입니다. 한글로 주석을 달아두었습니다. 혹시 궁금하신 점이나 잘못된 부분이 있다면 말씀해주세요.
 
 ```python
 """
@@ -48,16 +48,17 @@ np.random.seed(42)
 
 class TwoLayerNetwork(object):
     def __init__(self, hidden_dim=128):
-        # W1, b1, W2, b2
+
+        # 파라미터를 저장할 딕셔너리 - W1, b1, W2, b2
         self.parameters = {}
 
-        # dW1, db1, dW2, db2
+        # 기울기를 저장할 딕셔너리 - dW1, db1, dW2, db2
         self.grads = {}
 
-        # X, Z1, A1, Z2, A2
+        # 은닉층 노드 값을 저장할 딕셔너리 - X, Z1, A1, Z2, A2
         self.caches = {}
 
-        # hidden dim
+        # 은닉 층 노드 개수
         self.hidden_dim = hidden_dim
 
     def initialize_weight(self, X):
@@ -129,12 +130,14 @@ class TwoLayerNetwork(object):
 
         m = Y.shape[0]
 
+        # 최종 오차 역전파
         dA2 = -(np.divide(Y, AL) - np.divide(1 - Y, 1 - AL))
         dZ2 = sigmoid_backward(self.caches['Z2'], dA2)
 
         dW2 = 1 / m * np.dot(self.caches['A1'].T, dZ2)
         db2 = 1 / m * np.sum(dZ2, axis=0, keepdims=True)
 
+        # 활성화 함수 역전파
         dA1 = np.dot(dZ2, self.parameters['W2'].T)
         dZ1 = relu_backward(self.caches['Z1'], dA1)
 
@@ -160,8 +163,9 @@ class TwoLayerNetwork(object):
     def train(self, X, Y, learning_rate=0.01):
         """
         1) 순전파
-        2) 역전파
-        3) 파라미터 업데이트
+        2) 오차 함수 계산
+        3) 역전파
+        4) 파라미터 업데이트
 
         :param X: 데이터
         :param Y: 정답 레이블
@@ -178,8 +182,9 @@ class TwoLayerNetwork(object):
 
 def predict(AL):
     """
+    예측 확률을 [0, 1]로 반올림
 
-    :param AL:
+    :param AL: 마지막 층 활성화 값
     :return:
     """
     prediction = AL.copy()
@@ -190,6 +195,13 @@ def predict(AL):
 
 
 def caculate_accuracy(AL, Y):
+    """
+    평균 정확도 계산
+
+    :param AL: 마지막 층 활성화 값
+    :param Y: 정답 레이블
+    :return:
+    """
     return np.average(AL == Y)
 
 
@@ -201,23 +213,22 @@ if __name__ == "__main__":
     y = y.reshape(-1, 1)
 
     # 2. 전처리
-    # train test split
+    # train test 나누기
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y)
 
-    # scaling
+    # 각 특성별 크기를 [0, 1]로 바꾼다.
     scaler = MinMaxScaler()
     preprocssed_X_train = scaler.fit_transform(X_train)
     preprocssed_X_test = scaler.transform(X_test)
 
     # 3. 훈련
-
     # 모델 정의
     two_layer_network = TwoLayerNetwork(hidden_dim=128)
 
     # 파라미터 초기화
     two_layer_network.initialize_weight(X)
 
-    # hyperparameter
+    # 하이퍼파라미터 세팅
     BATCH_SIZE = 32
     EPOCHS = 1000
     LEARNING_RATE = 0.01
@@ -228,11 +239,13 @@ if __name__ == "__main__":
     test_history = []
     test_acc = []
 
-    # train model
+    # 학습
     for i in range(EPOCHS):
+        # 에폭 당 배치 개수
         num_iterations = preprocssed_X_train.shape[0] // BATCH_SIZE
         epoch_cost = 0
 
+        # 배치 학습
         for j in range(num_iterations):
             X_train_batch = preprocssed_X_train[j * BATCH_SIZE:(j+1) * BATCH_SIZE, :]
             y_train_batch = y_train[j * BATCH_SIZE:(j+1)*BATCH_SIZE, 0].reshape(-1, 1)
@@ -244,17 +257,20 @@ if __name__ == "__main__":
             cost = two_layer_network.train(X_train_batch, y_train_batch,
                                            learning_rate=LEARNING_RATE)
             epoch_cost += cost
+
+        # 에폭 평균 오차
         epoch_cost /= X_train.shape[0]
 
         if i % 10 == 0:
             print(str(i+1) + " 번째 cost : ", epoch_cost)
 
+        # train 오차 및 정확도
         train_history.append(epoch_cost)
         prediction = predict(two_layer_network.forward(preprocssed_X_train))
         acc = caculate_accuracy(prediction, y_train)
         train_acc.append(acc)
 
-        # test
+        # test 오차 및 정확도
         test_AL = two_layer_network.forward(preprocssed_X_test)
         cost = two_layer_network.compute_cost(test_AL, y_test)
         test_history.append(cost)
@@ -277,19 +293,18 @@ if __name__ == "__main__":
     plt.ylabel("ACC")
     plt.legend()
     plt.show()
-
 ```
 
 ```python
 """
 util.py
 """
-
 import numpy as np
+
 
 def relu(X):
     """
-    relu function
+    relu 함수 구현 - A = relu(Z)
 
     :param X:
     :return: relu(X)
@@ -302,11 +317,11 @@ def relu(X):
 
 def relu_backward(Z, dA):
     """
-    relu backward
+    relu 역전파 구현 - dZ = relu'(Z) * dA
 
     :param Z:
     :param dA:
-    :return: dZ = relu'(Z) * dA
+    :return: dZ
     """
 
     relu_derivative = np.copy(Z)
@@ -319,23 +334,23 @@ def relu_backward(Z, dA):
 
 def sigmoid(X):
     """
-    sigmoid function
+    sigmoid 함수 구현 - A = sigmoid(X)
 
     :param X:
-    :return: sigmoid(X)
+    :return: A
     """
-
-    return 1 / ((1 + np.exp(-X)) + 1e-5)
+    A = 1 / ((1 + np.exp(-X)) + 1e-5)
+    return A
 
 
 def sigmoid_backward(Z, dA):
     """
-    sigmoid backward
+    sigmoid 역전파 구현 - dZ = sigmoid'(Z) * dA
 
 
     :param Z:
     :param dA:
-    :return: dZ = sigmoid'(Z) * dA
+    :return: dZ
     """
 
     AL = sigmoid(Z)
