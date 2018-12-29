@@ -39,7 +39,7 @@ tags:
 #### 1. Big-O Notation
 
 - 정의
-  -  $T(n) = \Omicron (f(n)) $ if and only if there exist constant $c, n_0$ such that $T(n) <= c f(n)$ for all $n >= n_0$
+  -  $T(n) = O (f(n)) $ if and only if there exist constant $c, n_0$ such that $T(n) <= c f(n)$ for all $n >= n_0$
   - **Upper bound.** ex) $O(n^3) = n^2 $
 
 
@@ -63,5 +63,5 @@ tags:
 #### 4. Little-O Notation
 
 - 정의
-  - $T(n) = \omicron(f(n))$ if and only if **all contants $c >0$**, there exists a constant $n_0$ such that $T(n) <= c  f(n) $ for all $n >= n_0$
+  - $T(n) = o(f(n))$ if and only if **all contants $c >0$**, there exists a constant $n_0$ such that $T(n) <= c  f(n) $ for all $n >= n_0$
   - Big O Notation보다 엄격하다.
