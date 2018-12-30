@@ -6,7 +6,7 @@ tags:
   - data structure
   - algorithm
 ---
-자료구조와 알고리즘 공부를 시작했습니다. Coursera의 [San Diego](https://www.coursera.org/specializations/data-structures-algorithms) 대학 강의 커리큘럼에 맞게 정리할 생각입니다. 하지만 처음 Asymptotic Analysis의 경우에는 [Standford]() 강의를 참고 했습니다.
+자료구조와 알고리즘 공부를 시작했습니다. Coursera의 [Princeton](https://www.coursera.org/learn/algorithms-part1) 대학 강의 커리큘럼에 맞게 정리할 생각입니다. 하지만 처음 Asymptotic Analysis의 경우에는 [Standford]() 강의를 참고 했습니다.
 
 
 
