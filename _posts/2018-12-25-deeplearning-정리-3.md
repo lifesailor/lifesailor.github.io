@@ -7,7 +7,7 @@ tags:
   - deep learning
 ---
 
-앞으로 딥러닝을 공부하면서 하나씩 정리해보고자 합니다. 딥러닝 개념은 정리된 블로그는 많지만 구현과 함께 정리된 곳은 많지 않아서 구현을 중심으로 정리할 생각입니다. 정리와 코드는 Andrew Ng 교수님의 [deeplearning.ai](https://www.coursera.org/courses?query=deeplearning.ai) 강의를 참고했습니다. 
+앞으로 딥러닝을 공부하면서 하나씩 정리해보고자 합니다. 딥러닝 개념은 정리된 블로그는 많지만 구현과 함께 정리된 곳은 많지 않아서 구현을 중심으로 정리할 생각입니다. Andrew Ng 교수님의 [deeplearning.ai](https://www.coursera.org/courses?query=deeplearning.ai) 강의와 Ian Goodfellow의 [deeplearning book](http://www.deeplearningbook.org/)를 참고했습니다. 
 
 <br/>
 
@@ -19,7 +19,11 @@ Deep Neural Network은 층을 여러개 쌓은 네트워크입니다. 모델을 
 
 <br/>
 
-따라서 구현 시에는 층의 개수를 바탕으로 반복문을 돌면서 순전파와 역전파를 구현합니다. 이 때 조심할 점은 마지막 층의 경우에는 sigmoid 함수를 사용하므로 별도로 구현해주어야 한다는 점입니다.
+따라서 구현 시에는 층의 개수를 바탕으로 반복문을 돌면서 순전파와 역전파를 구현합니다. 이 때 조심할 점은 마지막 층의 경우에는 sigmoid 함수를 사용하므로 별도로 구현해주어야 한다는 점입니다. Deeplearning book 6장 중에 위 과정이 잘 요약되어 있는 부분이 첨부합니다.
+
+![](/assets/images/deep-learning/deep-neural-network/goodfellow-1.png)
+
+![](/assets/images/deep-learning/deep-neural-network/goodfellow-2.png)
 
 <br/>
 
