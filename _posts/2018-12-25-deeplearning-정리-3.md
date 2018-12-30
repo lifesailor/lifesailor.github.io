@@ -19,7 +19,7 @@ Deep Neural Network은 층을 여러개 쌓은 네트워크입니다. 모델을 
 
 <br/>
 
-따라서 구현 시에는 층의 개수를 바탕으로 반복문을 돌면서 순전파와 역전파를 구현합니다. 이 때 조심할 점은 마지막 층의 경우에는 sigmoid 함수를 사용하므로 별도로 구현해주어야 한다는 점입니다. Deeplearning book 6장 중에 위 과정이 잘 요약되어 있는 부분이 첨부합니다.
+따라서 구현 시에는 층의 개수를 바탕으로 반복문을 돌면서 순전파와 역전파를 구현합니다. 이 때 조심할 점은 마지막 층의 경우에는 sigmoid 함수를 사용하므로 별도로 구현해주어야 한다는 점입니다. Deeplearning book 6장 중에 위 과정이 잘 요약되어 있는 부분이 있어서 해당 내용을 첨부합니다.
 
 ![](/assets/images/deep-learning/deep-neural-network/goodfellow-1.png)
 
