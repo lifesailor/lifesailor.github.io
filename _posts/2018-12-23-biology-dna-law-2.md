@@ -11,7 +11,7 @@ tags:
 
 [DNA 법칙](https://book.naver.com/bookdb/book_detail.nhn?bid=7058262) 
 
-
+<br/>
 
 이전 글에 이어서 2장의 내용을 정리하도록 하겠습니다. 1장에서는 하나의 세포를 다루었다면 2장에서는 다세포를 다룹니다. 
 
