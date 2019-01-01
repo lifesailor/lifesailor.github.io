@@ -55,7 +55,7 @@ tags:
 #### 3. Big-Theta Notation
 
 - 정의
-  - $T(n) = \Theta(f(n))$ if and only if  $T(n) = \Omega (f(n)) $ and  $T(n) = \Omicron (f(n)) $
+  - $T(n) = \Theta(f(n))$ if and only if  $T(n) = \Omega (f(n)) $ and  $T(n) = O(f(n)) $
   - It is equivalent of the following: there exist constant $c_1, c_2, n_0$ such that $c_1f(n) <= T(n) <= c_2f(n)$ for all $n >= n_0$
 
 
