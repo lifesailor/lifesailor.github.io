@@ -1,5 +1,5 @@
 ---
-title: "머신러닝 개념 정리(1) - 머신러닝이란 무엇인가."
+title: "머신러닝 개념 정리(1) - 머신러닝이란 무엇인가"
 categories:
   - machine learning 
 tags:
@@ -49,10 +49,10 @@ tags:
 따라서 $y = f(x)$ 를 추정함에 있어서 y = $f^{hat}(x) + \epsilon$, 항상 $\epsilon$ 이 존재할 수 밖에 없습니다. 이를 irreducible error라고 표현합니다.
 
 <p align="center">
-
-![img](/assets/images/machine-learning/machine-learning-1.png)
-
+    <img src="../assets/images/machine-learning/machine-learning-1.png">
 </p>
+
+<br/>
 
 ## 5. 머신러닝 기반 이론
 
