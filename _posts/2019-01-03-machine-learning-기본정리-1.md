@@ -1,5 +1,5 @@
 ---
-title: "머신러닝 개념 정리(1) - 머신러닝이란 무엇인가"
+title: "머신러닝 개념 정리(1) - What is machine learning"
 categories:
   - machine learning 
 tags:
@@ -51,7 +51,6 @@ tags:
 <p align="center">
     <img src="https://lifesailor.github.io/assets/images/machine-learning/machine-learning-1.png">
 </p>
-
 <br/>
 
 ## 5. 머신러닝 기반 이론
