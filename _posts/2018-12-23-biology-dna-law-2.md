@@ -39,7 +39,11 @@ tags:
   - 그 떄, NADH나 NADPH를 효율적으로 만들기 위해서 태양 에너지를 사용하는 세포가 나타났다. 바로 시아노 박테리아 였다. 이것이 광합성의 시초로 현재 생물은 먹을 것 없이 스스로 에너지를 만들 수 있었다. 즉 주변 환경에 있는 유기물에서 영양을 취하지 않아도 살아갈 수 있는 세포가 최초로 탄생했다. 그런데 사아노 박테리아는 광함성의 부산물로 O2를 만들어냈다.
   - 지구 위에 산소가 조금씩 늘어나자 일부 세포는 광함성 수행 능력을 상실했다. 하지만 이들은 광합성 세균이 만들어낸 유기물을 CO2, H2O로 분해시키려고 산소를 대신 쓰면서 그 때 발생한 에너지로 ATP를 만들었다. 이 세포가 오늘날의 미토콘드리아 조상으로, 현재 모든 세포에서 가장 중요한 존재가 되었다.
 
-![](/assets/images/biology/breathe.jpg)
+<br/>
+
+<p align="center">
+    <img src="https://lifesailor.github.io/assets/images/biology/breathe.jpg">
+</p>
 
 <br/>
 
@@ -94,7 +98,9 @@ tags:
 
 <br/>
 
-![](/assets/images/biology/regulatory-genome.png)
+<p align="center">
+    <img src="https://lifesailor.github.io/assets/images/biology/regulatory-genome.jpg">
+</p>
 
 <br/>
 
