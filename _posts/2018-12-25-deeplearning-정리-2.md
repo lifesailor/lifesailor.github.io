@@ -109,8 +109,8 @@ class TwoLayerNetwork(object):
         cost 계산
 
         :param AL: 마지막 활성화 값(A2)
-        :param Y: 정답
-        :return:
+        :param Y: 정답 레이블
+        :return: cost
         """
 
         assert AL.shape[0] == Y.shape[0]
@@ -124,8 +124,8 @@ class TwoLayerNetwork(object):
         역전파 구현
 
         :param AL: 마지막 활성화 값(A2)
-        :param Y:
-        :return:
+        :param Y: 실제 Label
+        :return: None
         """
 
         m = Y.shape[0]
@@ -154,7 +154,7 @@ class TwoLayerNetwork(object):
         파라미터 업데이트
 
         :param learning_rate: 학습률
-        :return:
+        :return: None
         """
         for i in range(1, 3):
             self.parameters['W' + str(i)] -= learning_rate * self.grads['dW' + str(i)]
@@ -185,7 +185,7 @@ def predict(AL):
     예측 확률을 [0, 1]로 반올림
 
     :param AL: 마지막 층 활성화 값
-    :return:
+    :return: prediction(0 또는 1)
     """
     prediction = AL.copy()
     prediction[AL >= 0.5] = 1
@@ -200,7 +200,7 @@ def caculate_accuracy(AL, Y):
 
     :param AL: 마지막 층 활성화 값
     :param Y: 정답 레이블
-    :return:
+    :return: 정확도
     """
     return np.average(AL == Y)
 
@@ -307,7 +307,7 @@ def relu(X):
     relu 함수 구현 - A = relu(Z)
 
     :param X:
-    :return: relu(X)
+    :return: A
     """
 
     A = np.copy(X)

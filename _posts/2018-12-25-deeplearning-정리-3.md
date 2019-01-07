@@ -108,7 +108,7 @@ class DeepNeuralNetwork(object):
 
         :param AL: 마지막 활성화 값(A2)
         :param Y: 정답
-        :return:
+        :return: cost
         """
 
         assert AL.shape[0] == Y.shape[0]
@@ -122,9 +122,9 @@ class DeepNeuralNetwork(object):
         """
         역전파 구현
 
-        :param AL: 마지막 활성화 값(A2)
-        :param Y:
-        :return:
+        :param AL: 마지막 활성화 값
+        :param Y: 정답 Label
+        :return: None
         """
 
         m = Y.shape[0]
@@ -154,7 +154,7 @@ class DeepNeuralNetwork(object):
         파라미터 업데이트
 
         :param learning_rate: 학습률
-        :return:
+        :return: None
         """
 
         # 층의 개수
@@ -174,7 +174,7 @@ class DeepNeuralNetwork(object):
         :param X: 데이터
         :param Y: 정답 레이블
         :param learning_rate: 학습률
-        :return:
+        :return: cost
         """
 
         AL = self.forward(X)
@@ -189,7 +189,7 @@ def predict(AL):
     예측 확률을 [0, 1]로 반올림
 
     :param AL: 마지막 층 활성화 값
-    :return:
+    :return: prediction(0 또는 1)
     """
     prediction = AL.copy()
     prediction[AL >= 0.5] = 1
@@ -204,7 +204,7 @@ def caculate_accuracy(AL, Y):
 
     :param AL: 마지막 층 활성화 값
     :param Y: 정답 레이블
-    :return:
+    :return: 정확도
     """
     return np.average(AL == Y)
 
@@ -311,7 +311,7 @@ def relu(X):
     relu 함수 구현 - A = relu(Z)
 
     :param X:
-    :return: relu(X)
+    :return: A
     """
 
     A = np.copy(X)

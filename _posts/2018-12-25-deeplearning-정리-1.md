@@ -69,8 +69,8 @@ def sigmoid(x):
     """
     sigmoid 함수
 
-    :param x:
-    :return:
+    :param x: 입력 데이터
+    :return: sigmoid(x)
     """
     return 1 / ((1 + np.exp(-x)) + 1e-5)
 
@@ -79,8 +79,8 @@ def weight_initializer(X):
     """
     weight 초기화
 
-    :param X:
-    :return:
+    :param X: 입력 데이터
+    :return: W, b
     """
     W = np.random.randn(X.shape[1]).reshape(-1, 1) * 0.01
     b = np.random.randn(1) * 0.01
@@ -91,11 +91,11 @@ def forward(X, Y, W, b):
     """
     순전파
 
-    :param X:
-    :param Y:
-    :param W:
-    :param b:
-    :return:
+    :param X: 입력 데이터
+    :param Y: 정답 레이블
+    :param W: weight
+    :param b: bias
+    :return: A, cost
     """
     # linear - Z = XW + b
     Z = np.dot(X, W) + b
@@ -118,12 +118,12 @@ def propagate(X, Y, W, b, learning_rate=0.001):
     2) 역전파
     3) 파라미터 업데이트
 
-    :param X:
-    :param Y:
-    :param W:
-    :param b:
-    :param learning_rate:
-    :return:
+    :param X: 입력 데이터
+    :param Y: 정답 레이블
+    :param W: weight
+    :param b: bias
+    :param learning_rate: 학습률
+    :return: W, b, cost
     """
 
     m = X.shape[0]
@@ -148,11 +148,11 @@ def predict(X, Y, W, b):
     """
     0 또는 1의 값으로 예측한다.
 
-    :param X:
-    :param Y:
-    :param W:
-    :param b:
-    :return:
+    :param X: 입력 데이터 
+    :param Y: 정답 레이블
+    :param W: weight
+    :param b: bias
+    :return: prediction(0 또는 1)
     """
 
     # 예측 확률
@@ -173,9 +173,9 @@ def calculate_accuracy(prediction, Y):
     """
     평균 정확도 계산
 
-    :param prediction:
-    :param Y:
-    :return:
+    :param prediction: 예측 레이블 
+    :param Y: 정답 레이블
+    :return: 정확도
     """
     return np.mean(prediction == Y)
 
@@ -261,6 +261,5 @@ if __name__ == "__main__":
     plt.ylabel("Accuracy")
     plt.legend()
     plt.show()
-
 ```
 
