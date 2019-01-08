@@ -10,11 +10,11 @@ tags:
 
 [Transitional College of Lex, DNA의 법칙](https://book.naver.com/bookdb/book_detail.nhn?bid=7058262) 
 
+<br/>
 
+![](/assets/images/book/dna.png)
 
-![](/assets/images/biology/dna.png)
-
-
+<br/>
 
 고등학교를 졸업하고 나서 처음 생물을 접했습니다. 고등학교 시절에는 생물이 암기 과목이라고 생각했습니다. 고3 때는 DNA가 복제하는 순서를 종이에 몇 번이고 써서 외웠던 것 같습니다. 하지만 그것의 의미를 한 번도 생각해보지 않았습니다. 하지만 이번에 DNA 법칙을 읽으면서 생물에서 다루는 내용들이 참 경이롭다는 생각을 했습니다. 우리 존재 자체가 DNA로부터 시작되었고 그것에 대해서 호기심이나 질문을 던지는 것은 자연스러운 일이었을텐데 고등학교 시절에는 왜 이와 같은 감정을 느끼지 못했을까요? 
 
