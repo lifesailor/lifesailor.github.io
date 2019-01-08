@@ -9,7 +9,7 @@ tags:
 
 ---
 
-[DNA 법칙](https://book.naver.com/bookdb/book_detail.nhn?bid=7058262) 
+[Transitional College of Lex, DNA의 법칙](https://book.naver.com/bookdb/book_detail.nhn?bid=7058262) 
 
 <br/>
 
