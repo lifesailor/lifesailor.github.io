@@ -140,6 +140,8 @@ public class Counter {
 }
 ```
 
+<br/>
+
 - I/O 부가 효과가 있는 추상 데이터 타입: 모든 인스턴스 변수가 private이다. 인스턴스 메서드에서 I/O가 발생한다.
   - VisualAccumulator, In, Out, Draw
 
