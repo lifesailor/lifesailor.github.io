@@ -45,6 +45,7 @@ tags:
 ### 3. Digital Time signal
 
 - Digital Time Signal은 복소수의 나열이다.
+  - $x: \displaystyle \mathbb {Z} \Rightarrow \displaystyle \mathbb {C}$
 
 - 4가지 신호 유형
   - Finite-length
@@ -54,6 +55,8 @@ tags:
   - Periodic
     - $x[n] = x[n + kN]$
   - Finite-support
+    - $if$ $0 < n < N$ $x[n] = x[n + kN], n \in  \displaystyle \mathbb {Z} $
+    - $otherwise$ $0$
 
 - Energy and Power
   - Energy = $E_x = \sum_{n=-\infty}^{+\infty}{x[n]}^2$
@@ -75,7 +78,7 @@ tags:
 
 
 
-- Discrete-Physical Bridge
+- Bridge between discrete time and physical world
   - Ts: Time between samples
   - M: periodicty of MY seconds
   - Physical world frequency $f = 1/(M * Ts)$
@@ -84,10 +87,6 @@ tags:
 <br/>
 
 ### 5. Karplus Strong Algorithm
-
-
-
-
 
 The Karplus-Strong Alogirhtm is a simple digital feedback loop with an internal buffer of M samples.
 
@@ -110,4 +109,3 @@ def KS(x, N, alpha=0.99):
         
     return y
 ```
-
