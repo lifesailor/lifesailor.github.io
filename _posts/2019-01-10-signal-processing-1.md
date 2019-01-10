@@ -47,21 +47,13 @@ tags:
 - Digital Time Signal은 복소수의 나열이다.
 
 - 4가지 신호 유형
-
   - Finite-length
-
     - $x[n] = [x_0, x_1, x_{n-1}]^t$
-
   - Infinite-length
-
-    - Finite-length의 확장
-
+    - expansion of finite-length 
   - Periodic
-
     - $x[n] = x[n + kN]$
-
   - Finite-support
-
 
 - Energy and Power
   - Energy = $E_x = \sum_{n=-\infty}^{+\infty}{x[n]}^2$
