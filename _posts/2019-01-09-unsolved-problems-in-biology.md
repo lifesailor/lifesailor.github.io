@@ -38,7 +38,7 @@ tags:
 7. Viral Evolution in the Genomic Age(유전체 시대의 바이러스 진화)
 8. Stoichiometry and the New Biology: The Future Is Now(화학양론과 새로운 생물학)
 9. The Genetics of Brain Wiring: From Molecule to Mind(두뇌 배선의 유전적 특징)
-10. Environmental Shotgun Sequencing: Its Potential and Chal- lenges for Studying the Hidden World of Microbes(Environmental Shotgun 시퀀싱: 미생물의 숨겨신 세계를 연구할 수 있는 잠재력과 과제)
+10. Environmental Shotgun Sequencing: Its Potential and Challenges for Studying the Hidden World of Microbes(Environmental Shotgun 시퀀싱: 미생물의 숨겨신 세계를 연구할 수 있는 잠재력과 과제)
 
 11. Evolution, Interactions, and Biological Networks(진화, 상호작용, 생물학적 네트워크)
 12. Balancing Robustness and Evolvability(생물 강건성과 진화)
