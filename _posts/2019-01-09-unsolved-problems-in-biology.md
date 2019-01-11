@@ -12,7 +12,7 @@ tags:
 
 <br/>
 
-생물학이 현재 마주치고 있는 가장 중요한 문제가 무엇인지 알고 싶었습니다. 그리고 제가 bioinformatics, computational biology, systems biology를 전공한다면 이 중에서 어떤 문제를 해결할 수 있는지 알고 싶었습니다. 그 과정 속에서 생물 분야에서 해결하지 못하고 있는 가장 큰 문제를 다룬 해당 논문을 찾았습니다.
+생물학에서 가장 중요한 문제가 무엇인지 알고 싶었습니다. 그리고 제가 bioinformatics, computational biology, systems biology를 전공한다면 이 중에서 어떤 문제를 해결할 수 있는지 알고 싶었습니다. 그 과정 속에서 생물 분야에서 해결하지 못한 문제를 다룬 해당 논문을 찾았습니다.
 
 <br/>
 
