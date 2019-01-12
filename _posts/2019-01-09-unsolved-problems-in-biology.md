@@ -128,7 +128,7 @@ Riken Institute와 Harvard University의 과학자들이 일부 논문을 철회
 
 
 
-- Biological ageing(생물학적 노화)
+- Biological aging(생물학적 노화)
 
 
 
