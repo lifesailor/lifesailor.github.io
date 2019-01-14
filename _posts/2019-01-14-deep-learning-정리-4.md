@@ -34,7 +34,7 @@ Regularization은 머신러닝 모델이 training set에 과적합 되지 않고
 
 <br/>
 
-1. Paremeter Norm Penalties
+### 1. Paremeter Norm Penalties
 
 <br/>
 
@@ -42,11 +42,11 @@ Regularization은 머신러닝 모델이 training set에 과적합 되지 않고
 
 <br/>
 
-왼쪽 그림의 빨간색 선을 보면 parameter가 너무 커짐으로써 training 데이터에 overfitting된 것을 볼 수 있습니다. Parameter Norm Penalty는 Cost뿐만이 아니라 Parameter Norm을 같이 줄이도록 시도함으로써 paramter가 너무 커지는 것을 방지합니다. Norm의 경우에는 $\mid w\mid^1 , \mid w \mid ^2$ 둘 다 사용할 수 있는데 여기에서는 $\mid w \mid^2$을 가정하고 코드를 작성하였습니다. 
+왼쪽 그림의 빨간색 선을 보면 parameter가 너무 자유 분방함으로써 training 데이터에 overfitting된 것을 볼 수 있습니다. Parameter Norm Penalty는 학습 과정에서 Cost뿐만이 아니라 Parameter Norm을 같이 줄이도록 함으로써 parameter가 너무 커지는 것을 방지합니다. Norm의 경우에는 $\mid w\mid^1 , \mid w \mid ^2$ 둘 다 사용할 수 있는데 여기에서는 $\mid w \mid^2$을 가정하고 식과 코드를 작성하였습니다. 
 
-$$J(w) = J(w) + \lambda*w^tw$$
+$$J = -\frac{1}{m} \sum\limits_{i = 1}^{m} \large{(}\small  y^{(i)}\log\left(a^{[L](i)}\right) + (1-y^{(i)})\log\left(1- a^{[L](i)}\right) \large{)}​$$
 
-$$w = w - \alpha(\lambda w + dJ)​$$
+$$J_{regularized} = \small \underbrace{-\frac{1}{m} \sum\limits_{i = 1}^{m} \large{(}\small y^{(i)}\log\left(a^{[L](i)}\right) + (1-y^{(i)})\log\left(1- a^{[L](i)}\right) \large{)} }_\text{cross-entropy cost} + \underbrace{\frac{1}{m} \frac{\lambda}{2} \sum\limits_l\sum\limits_k\sum\limits_j W_{k,j}^{[l]2} }_\text{L2 regularization cost}$$
 
 ```python
 """
@@ -54,25 +54,29 @@ cost
 """
 
 # 기존 cost
-cost = - 1 / m * np.sum(Y * np.log(AL) + (1 - Y) * np.log(1 - AL))
+cost = - 1 / m * (np.sum(Y * np.log(AL) + (1 - Y) * np.log(1 - AL)))
 
-# 변경 cost - 여기에서 W는 각 parameter를 의미합니다.
-cost =  - 1 / m * np.sum(Y * np.log(AL) + (1 - Y) * np.log(1 - AL)) - lambda_ * (1 / 2m) * np.sum(np.multiply(W, W))
+# 변경 cost - 여기에서 W는 모든 층의 parameter를 의미합니다.
+cost =  - 1 / m * (np.sum(Y * np.log(AL) + (1 - Y) * np.log(1 - AL))) + 1/m * (lambda_/2) * np.sum(np.square(W))
 ```
 
 ```python
 """
-update parameter
+backpropagation
 """
 
 # 기존 parameter 업데이트
-W = W - alpha * dW
+dW = 1 / m * np.dot(dZ, A_prev.T)
+db = 1 / m * np.sum(dZ, axis=0, keepdims=True)
 
 # 변경 parameter update 
-W = W - alpha * (lambda_ * W + dW) 
+dW = 1./m * np.dot(dZ, A_prev.T) + lambd_/m * W
+db = 1./m * np.sum(dZ, axis=1, keepdims = True)
 ```
+
+위의 backpropagation 구현 과정에서 보듯이 보통 bias의 경우에는 Parameter Norm에 추가하지 않습니다. 이는 bias의 경우에는 각 층의 하나의 노드마다 단일 변수만 제어하기 떄문에 이를 비정규화함으로써 많은 차이를 유도하지 않는다는 것을 뜻한다고 합니다. 또한, 바이어스를 정규화함으로써 언더피팅 될 수 있다고 합니다.
 
 <br/>
 
-2. Dataset Augmentation
+### 2. Dataset Augmentation
 
