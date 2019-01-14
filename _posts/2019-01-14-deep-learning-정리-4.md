@@ -36,15 +36,17 @@ Regularization은 머신러닝 모델이 training set에 과적합 되지 않고
 
 1. Paremeter Norm Penalties
 
+<br/>
+
 ![](/assets/images/deep-learning/regularization/weight-decay.png)
 
 <br/>
 
-왼쪽 그림의 빨간색 선을 보면 parameter가 너무 커짐으로써 training 데이터에 overfitting된 것을 볼 수 있습니다. Parameter Norm Penalty는 Cost뿐만이 아니라 Parameter Norm을 같이 줄이도록 시도함으로써 paramter가 너무 커지는 것을 방지합니다. Norm의 경우에는 $|w|^1, |w|^2$ 둘 다 사용할 수 있는데 여기에서는 $|w|^2$을 가정하고 코드를 작성하였습니다. 
+왼쪽 그림의 빨간색 선을 보면 parameter가 너무 커짐으로써 training 데이터에 overfitting된 것을 볼 수 있습니다. Parameter Norm Penalty는 Cost뿐만이 아니라 Parameter Norm을 같이 줄이도록 시도함으로써 paramter가 너무 커지는 것을 방지합니다. Norm의 경우에는 $\mid w\mid^1 , \mid w \mid ^2$ 둘 다 사용할 수 있는데 여기에서는 $\mid w \mid^2$을 가정하고 코드를 작성하였습니다. 
 
-$J(w) = J(w) + \lambda*w^tw$
+$$J(w) = J(w) + \lambda*w^tw$$
 
-$w = w - \alpha(\lambda w + dJ)$
+$$w = w - \alpha(\lambda w + dJ)​$$
 
 ```python
 """
