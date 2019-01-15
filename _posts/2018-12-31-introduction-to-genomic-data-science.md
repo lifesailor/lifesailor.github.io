@@ -1,7 +1,7 @@
 ---
 title: "Introduction to genomic data science"
 categories:
-   - genomics
+   - biology
 tags:
    - biology
    - genomics
