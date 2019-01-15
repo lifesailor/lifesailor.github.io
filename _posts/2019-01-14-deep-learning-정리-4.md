@@ -15,7 +15,7 @@ tags:
 
 <br/>
 
-![](/assets/images/deep-learning/initialization/initialization.png)
+![](/assets/images/deep-learning/initialization/intialization.png)
 
 <br/>
 
