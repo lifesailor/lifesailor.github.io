@@ -1,5 +1,5 @@
 ---
-title: 딥러닝 정리(4) - Weight Initialization
+title: 딥러닝 구현 정리(4) - Weight Initialization
 categories:
   - deep learning
 tags:
