@@ -1,5 +1,5 @@
 ---
-title: 딥러닝 정리(2) - Two Layer Network
+title: 딥러닝 구현 정리(2) - Two Layer Network
 categories:
   - deep learning
 tags:

@@ -1,5 +1,5 @@
 ---
-title: 딥러닝 정리(1) - Logistic Regression
+title: 딥러닝 구현 정리(1) - Logistic Regression
 categories:
   - deep learning
 tags:

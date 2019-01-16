@@ -1,5 +1,5 @@
 ---
-title: 딥러닝 정리(3) - Deep Neural Network
+title: 딥러닝 구현 정리(3) - Deep Neural Network
 categories:
   - deep learning
 tags:
