@@ -1,5 +1,5 @@
 ---
-title: "List of unsolved problems in biology(1)"
+title: "List of unsolved problems in biology"
 categories:
   - biology
 tags:
