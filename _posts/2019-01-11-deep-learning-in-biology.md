@@ -52,7 +52,7 @@ tags:
   - Single-cell data(단세포 데이터)
   - Metagenomics(메타 유전체)
   - Sequencing and variant calling(시퀀심 및 변종 호출)
-  - **Neuroscience(신경과학) $\tag{4}$**
+  - Neuroscience(신경과학) $\tag{4}$
 - The impact of deep learning in treating disease and developing new treatment
   - Clinical decision making(임상 의사 결정)
   - Drug repositioning(약물 repositioning)
