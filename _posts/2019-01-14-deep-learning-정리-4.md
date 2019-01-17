@@ -101,8 +101,14 @@ for i, a in activations.items():
 plt.show()
 ```
 
-다음 코드를 실행하면 Normal 분포로 가중치를 초기화한 경우에는 아래와 같이 몇 층이 지나면 활성화 함수 출력 값이 모두 0이 되어버립니다. 반면에 He 분포로 가중치를 초기화 한 경우에는 0을 제외하고 활성화 함수 출력 값이 여전히 0에서 1사이에 균등하게 분포되어 있는 것을 확인할 수 있습니다.
+다음 코드를 실행하면 Normal 분포로 가중치를 초기화한 경우에는 아래와 같이 몇 층이 지나면 활성화 함수 출력 값이 모두 0이 되어버립니다. 반면에 He 분포로 가중치를 초기화 한 경우에는 0을 제외하고 활성화 함수 출력 값이 여전히 0에서 1사이에 균등하게 분포되어 있는 것을 확인할 수 있습니다.<br/>
 
-![](/assets/images/deep-learning/initialization/normal.png)
+**normal**
 
-![](/assets/images/deep-learning/initialization/he.png)
+![](/assets/images/deep-learning/initialization/normal1.png)
+
+<hr/>
+
+**he**
+
+![](/assets/images/deep-learning/initialization/he1.png)
