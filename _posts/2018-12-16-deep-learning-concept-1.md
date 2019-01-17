@@ -1,5 +1,5 @@
 ---
-title: 딥러닝 개념 정리
+title: Machine Learning vs Deep Learning
 categories:
   - deep learning
 tags:
@@ -21,6 +21,6 @@ tags:
 
 반면에, 딥러닝은 사람이 직접 feature를 설계하지 않습니다. 대신 딥러닝 모델이 feature를 뽑는 방법까지 학습합니다. 이를 표현 학습(representation learning)이라 합니다. 처음에는 딥러닝 모델이 선택한 feature이 잘못되었을 수도 있습니다. 그렇다면 딥러닝 모델도 '차'를 인식하지 못하겠죠. 하지만 딥러닝 모델은 계속해서 '차'를 제대로 인식할 수 있을 때까지 내부의 특징을 방법을 계속해서 수정합니다. 이 수정 과정에서 딥러닝 모델은 간단한 표현을 조합해서 점점 더 복잡한 표현을 표현하는 방식으로 학습한다고 알려져 있습니다. '차'의 특징을 알아내기 위해서 먼저 바퀴의 동그라미, 타이어의 줄무늬와 같은 간단한 표현을 조합해서 바퀴를 표현하고 이를 조합해서 '차'를 표현하는 방식으로 학습한다는 것이지요. 아래 그림은 다음 과정을 나타냅니다. (딥러닝 북에서 추출)
 
-![](/assets/images/deep-learning/concept/deep.png)
+![](/assets/images/deep-learning/concept/deep.jpg)
 
 <br/>
