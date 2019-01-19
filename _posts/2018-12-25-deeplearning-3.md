@@ -12,6 +12,8 @@ tags:
 
 <br/>
 
+'딥러닝이란 무엇이고 어떻게 동작 하는가.'의 Part1은 Logistic Regression입니다. Logistic Regression은 은닉층이 없는 신경망입니다. 그렇기 때문에 구현 과정에서 순전파와 역전파를 한 번씩만 해주면 됩니다. 아래 그림이 다음 과정입니다.
+
 Logistic Regression은 은닉층이 없는 신경망입니다. 그렇기 때문에 순전파와 역전파를 한 번씩만 해주면 됩니다. 아래 그림이 다음 과정입니다.
 
 <br/>
@@ -20,7 +22,7 @@ Logistic Regression은 은닉층이 없는 신경망입니다. 그렇기 때문�
 
 <br/>
 
-Logistic Regression 구현 시 어려운 부분은 역전파 부분입니다. 아래는 Logistic Regression의 역전파 과정입니다. 
+Logistic Regression 구현 시 어려운 부분은 역전파 과정입니다. 아래는 Logistic Regression의 역전파 수식입니다. 
 
 <br/>
 
