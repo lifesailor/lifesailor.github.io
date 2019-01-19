@@ -8,11 +8,11 @@ tags:
   - logistic Regression
 ---
 
-앞으로 딥러닝을 공부하면서 하나씩 정리해보고자 합니다. 딥러닝 개념은 정리된 블로그는 많지만 구현과 함께 정리된 곳은 많지 않아서 구현을 중심으로 정리할 생각입니다. Andrew Ng 교수님의 [deeplearning.ai](https://www.coursera.org/courses?query=deeplearning.ai) 강의 및 Standford의 [CS231n](http://cs231n.stanford.edu/) 강의와 Ian Goodfellow의 [deeplearning book](http://www.deeplearningbook.org/)를 참고했습니다. 
+1-1. Logistic Regression
 
 <br/>
 
-'딥러닝이란 무엇이고 어떻게 동작 하는가.'의 Part1은 Logistic Regression입니다. Logistic Regression은 은닉층이 없는 신경망입니다. 그렇기 때문에 구현 과정에서 순전파와 역전파를 한 번씩만 해주면 됩니다. 아래 그림이 다음 과정입니다.
+Logistic Regression은 은닉층이 없는 신경망입니다. 그렇기 때문에 구현 과정에서 순전파와 역전파를 한 번씩만 해주면 됩니다. 아래 그림이 다음 과정입니다.
 
 Logistic Regression은 은닉층이 없는 신경망입니다. 그렇기 때문에 순전파와 역전파를 한 번씩만 해주면 됩니다. 아래 그림이 다음 과정입니다.
 

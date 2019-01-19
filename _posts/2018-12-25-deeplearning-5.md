@@ -7,7 +7,7 @@ tags:
   - deep learning
 ---
 
-앞으로 딥러닝을 공부하면서 하나씩 정리해보고자 합니다. 딥러닝 개념은 정리된 블로그는 많지만 구현과 함께 정리된 곳은 많지 않아서 구현을 중심으로 정리할 생각입니다. Andrew Ng 교수님의 [deeplearning.ai](https://www.coursera.org/courses?query=deeplearning.ai) 강의 및 Standford의 [CS231n](http://cs231n.stanford.edu/) 강의와 Ian Goodfellow의 [deeplearning book](http://www.deeplearningbook.org/)를 참고했습니다. 
+1-3. Deep Neural Network
 
 <br/>
 
@@ -15,7 +15,7 @@ tags:
 
 <br/>
 
-'딥러닝이란 무엇이고 어떻게 동작 하는가.'의 Part3은 Deep Neural Network 입니다. Deep Neural Network은 층을 여러개 쌓은 네트워크입니다. 모델을 정의하기 전까지는 층의 개수가 정해져있지 않으므로 Two Layer Network처럼 W1, b1처럼 각각의 파라미터를 명시해서 구현할 수는 없습니다. 위의 그림에서 보듯이 Two Layer Network와 순전파와 역전파 하는 형태는 같지만 Layer 개수에 따라서 순전파와 역전파를 하는 횟수가 달라지도록 구현해야 합니다.
+'	딥러닝이란 무엇이고 어떻게 동작 하는가.'의 Part3은 Deep Neural Network 입니다. Deep Neural Network은 층을 여러개 쌓은 네트워크입니다. 모델을 정의하기 전까지는 층의 개수가 정해져있지 않으므로 Two Layer Network처럼 W1, b1처럼 각각의 파라미터를 명시해서 구현할 수는 없습니다. 위의 그림에서 보듯이 Two Layer Network와 순전파와 역전파 하는 형태는 같지만 Layer 개수에 따라서 순전파와 역전파를 하는 횟수가 달라지도록 구현해야 합니다.
 
 <br/>
 
