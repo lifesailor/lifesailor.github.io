@@ -105,7 +105,6 @@ tags:
 <p align="center">
     <img src="https://lifesailor.github.io/assets/images/biology/regulatory-genome.jpg">
 </p>
-
 <br/>
 
 - 다세포 생물의 복잡한 유전자 조절
