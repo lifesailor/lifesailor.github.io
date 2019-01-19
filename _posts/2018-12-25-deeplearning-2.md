@@ -1,5 +1,5 @@
 ---
-title: Deep Learning 정리(2) - Deep Learning Basic
+title: Deep Learning 정리(2) - Deep Learning Fundmental
 categories:
   - deep learning
 tags:
