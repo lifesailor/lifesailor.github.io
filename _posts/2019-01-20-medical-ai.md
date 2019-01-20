@@ -8,7 +8,7 @@ tags:
   - review
 ---
 
-[의료 인공지능, 최윤섭](https://book.naver.com/bookdb/book_detail.nhn?bid=13745929)
+[최윤섭, 의료 인공지능](https://book.naver.com/bookdb/book_detail.nhn?bid=13745929)
 
 <br/>
 
