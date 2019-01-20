@@ -14,7 +14,7 @@ tags:
 
 ## 1. Orthogonalization
 
-- 머신러닝에서 실험할 때 Orthogonal Control을 해야 한다. 
+- 머신러닝을 실험할 때는 Orthogonal Control을 해야 한다. 
   - 아니면, 나중에 무엇 때문에 성능이 좋아지거나 나빠졌는지 이해하지 못한다.
 
 
@@ -24,7 +24,6 @@ tags:
   - Dev set에 성능이 좋다.
   - Test set에 성능을 좋다.
   - 실제 환경에서 잘 작동한다.
-    - Change dev set of cost function
 
 
 
@@ -38,11 +37,11 @@ tags:
 
 - 지도 학습의 2가지 순서
   - Training set에 fit 한다. (avoidable bias)
-  - Dev / Test에 generalize 잘 하도록 한다. (variance)
+  - Dev / Test에 generalize 한다. (variance)
 
 
 
-- Bias / Variance 줄이기
+- Bias / Variance 감소
   - Human level: 4%
   - Training error: 7%(Avioidable bias)
     - Train bigger model
@@ -60,17 +59,18 @@ tags:
 - Hyperparameter Tuning 순서
 
   - 1등: Learning rate
-  - 2등: Hidden node 개수 및 minibatch 사이즈
+  - 2등: Hidden node 개수 및 mini-batch 크기
   - 3등: Layer 개수 및 learning rate decay
 
   
 
--  Try Random Values: Don't use a grid
+- Grid 탐색보다는 Random 탐색을 한다.
+
   - Coarse하게 샘플로 실험하고 영역을 찾고 나서 추가적으로 실험한다.
 
 
 
-- Using an appropriate scale to pick hyperparameter
+- Hyperparameter를 선정할 때 적절한 크기를 사용해서 실험한다. 
   - learning rate 등을 설정할 때 그냥 uniform 분포 대신에 $\alpha = 10^{r}, r \in [-4, 0]$을 사용한다.
     - 우리가 더 궁금한 것은 0.0001 & 0.0002의 차이가 아니다.
 
@@ -78,7 +78,7 @@ tags:
 
 ## 4. Training, Dev, Test set
 
-- Dev set 및 Test set은 같은 분포에서 나온 데이터야 한다.
+- Dev set 및 Test set은 같은 분포에서 나온 데이터로 만든다.
   - 미래에 실제 환경에 적용할 데이터를 기준으로 Dev set, Test set을 선택해야 한다.
 
 
@@ -115,7 +115,7 @@ tags:
 ## 5. Transfer Learning & Multitask Learning
 
 - Transfer Learning
-  - A, B에서 동일한 X
+  - A, B에서 X(입력)이 동일하다.
   - A가 B보다 데이터가 많다.
   - A에서 배운 low level feature가 B를 배우는 데 도움이 된다.
 
@@ -132,10 +132,10 @@ tags:
 
 - 핵심 질문: end-to-end deep learning을 하기 위한 충분한 데이터가 있는가?
   - 장점
-    - Less hand-designing of components needed
+    - Feature를 직접 만들지 않아도 된다.
   - 단점
-    - may need large amount of data
-    - excludes potentially useful hand-designed componetnts
+    - 데이터 양을 많이 필요로 한다. 
+    - 수작업 만들 수 있는 유용한 컴포넌트를 사용하지 못한다. 
 
 
 
@@ -149,8 +149,6 @@ tags:
 
 - 훈련, 검증, 테스트 세트로 나누고 평가 지표를 선정한다.
 - 첫 시스템을 빠르게 개발한다.
+  - Build Fast then iterate
 - bias / variance 분석과 error 분석을 통해서 다음 단계를 정한다.
 
-
-
-**Build Fast then iterate**
