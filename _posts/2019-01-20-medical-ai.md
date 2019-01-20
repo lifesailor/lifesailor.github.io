@@ -12,7 +12,7 @@ tags:
 
 <br/>
 
-![](/assets/images/book/medical-ai.png)
+![](/assets/images/book/medical-ai.jpg)
 
 <br/>
 
