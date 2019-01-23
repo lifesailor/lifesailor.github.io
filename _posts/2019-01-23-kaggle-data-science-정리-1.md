@@ -1,10 +1,11 @@
 ---
-title: "How to Win a Data Science Competition" - Week1 정리
+title: How to Win a Data Science Competition - Week 1 정리
 categories:
   - kaggle
 tags:
   - kaggle
   - machine-learning
+  - coursera
 ---
 
 Coursera의 [How to Win a Data Science Competition](https://www.coursera.org/learn/competitive-data-science/home/welcome) 강의를 수강하고 있습니다. 혼자서 시행 착오를 하면서 하나씩 터득하는 시간을 아끼고 머신러닝 팁을 많이 배울 수 있는 강의라고 생각합니다. 이 글에서는 Week1 내용을 정리하겠습니다.
