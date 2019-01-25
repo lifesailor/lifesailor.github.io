@@ -307,11 +307,11 @@ npnts = len(time)
 signal = 2*np.sin(2*np.pi*6*time)
 
 # Fourier spectrum
-signalX = scipy.fftpack.fft(signal)
+signalX = scipy.fftpack.fft(signal) 
 hz = np.linspace(0,srate,npnts)
 
 # amplitude
-ampl = np.abs(signalX[0:len(hz)])
+ampl = 2 * np.abs(signalX[0:len(hz)]) / npnts
 
 plt.stem(hz,ampl)
 plt.xlim(0,10)
@@ -320,5 +320,7 @@ plt.ylabel('Amplitude (a.u.)')
 plt.show()
 ```
 
-
+<p align="center">
+    <img src="https://lifesailor.github.io/assets/images/signal-processing/FFT.png">
+</p>
 
