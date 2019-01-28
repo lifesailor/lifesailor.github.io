@@ -1,154 +1,190 @@
 ---
-title: Deep Learning 정리(5) - Improving Performance Strategy
+title: Deep Learning 정리(5) - Optimizing Neural Network
 categories:
   - deep learning
 tags:
   - machine learning
   - deep learning
-
 ---
 
-이번 글에서는 실제 현업에서 딥러닝을 사용할 때 성능을 최적화 하는 방법에 대해서 작성해보았습니다. Andrew Ng 교수님의 [deeplearning.ai](https://www.coursera.org/courses?query=deeplearning.ai) 강의를 주로 참고했습니다. 
+앞으로 딥러닝을 공부하면서 하나씩 정리해보고자 합니다. 딥러닝 개념이 정리된 블로그는 많지만 구현과 함께 정리된 곳은 많지 않아서 구현을 중심으로 정리할 생각입니다. 이 글을 작성하는 데 Andrew Ng 교수님의 [deeplearning.ai](https://www.coursera.org/courses?query=deeplearning.ai) 강의 및 Standford의 [CS231n](http://cs231n.stanford.edu/) 강의와 Ian Goodfellow의 [deeplearning book](http://www.deeplearningbook.org/)를 참고했습니다. 
 
 <br/>
 
-## 1. Orthogonalization
+이전 글에서는 신경망의 구조를 중심으로 작성했습니다. Logistic Regression은 은닉층이 없는 신경망, Two Layer Network는 은닉층이 한 층이 있는 신경망, Deep Neural Newtork는 은닉층이 여러 개 있는 신경망으로 정리했습니다. 
 
-- 머신러닝을 실험할 때는 Orthogonal Control을 해야 한다. 
-  - 아니면, 나중에 무엇 때문에 성능이 좋아지거나 나빠졌는지 이해하지 못한다.
+하지만 단지 깊어진다고 해서 신경망의 성능이 좋아지는 것은 아닙니다. 깊은 신경망이 잘 작동하기 위해서는 여러가지 부수적인 스킬이 필요합니다. 이 글에서는 신경망의 성능을 최적화하는 여러가지 방법에 대해서 정리하겠습니다. 순서대로
 
+- Weight Initialization
+- Normalization
+- Activation Function
+- Optimizer 
+- Regularization
 
-
-- Machine Learning 작업 순서
-  - Training set에 성능이 좋다.
-  - Dev set에 성능이 좋다.
-  - Test set에 성능을 좋다.
-  - 실제 환경에서 잘 작동한다.
-
-
-
-- 1가지 평가 지표를 사용한다.
-  - 만약에 여러가지 조건이 있다면, 1가지 평가 지표과 몇 개의 Satisfaction 조건을 사용한다.
-    - 예를 들어서, 정확도를 평가 지표로 하고 prediction 속도는 10ms 이하인 모델을 선택하는 경우가 있다.
+에 대해서 정리해보겠습니다.
 
 <br/>
 
-## 2. Improving model performance
-
-- 지도 학습의 2가지 순서
-  - Training set에 fit 한다. (avoidable bias)
-  - Dev / Test에 generalize 한다. (variance)
-
-
-
-- Bias / Variance 감소
-  - Human level: 4%
-  - Training error: 7%(Avioidable bias)
-    - Train bigger model
-    - Train longer / better optimization algorithm
-    - NN architecture / hyperparameter search
-  - Dev error
-    - More data
-    - Regularization
-    - NN architecture 
+## 1. Weight Initialization
 
 <br/>
 
-## 3. Hyperparameter Tuning
-
-- Hyperparameter Tuning 순서
-
-  - 1등: Learning rate
-  - 2등: Hidden node 개수 및 mini-batch 크기
-  - 3등: Layer 개수 및 learning rate decay
-
-  
-
-- Grid 탐색보다는 Random 탐색을 한다.
-
-  - Coarse하게 샘플로 실험하고 영역을 찾고 나서 추가적으로 실험한다.
-
-
-
-- Hyperparameter를 선정할 때 적절한 크기를 사용해서 실험한다. 
-  - learning rate 등을 설정할 때 그냥 uniform 분포 대신에 $\alpha = 10^{r}, r \in [-4, 0]$을 사용한다.
-    - 우리가 더 궁금한 것은 0.0001 & 0.0002의 차이가 아니다.
+신경망의 가중치를 어떻게 초기화하느냐에 따라서 성능이 많이 달라집니다. 하나의 예로 초기 가중치를 각 층의 노드마다 같게 설정하면 모든 신경망의 가중치가 같게 순전파 되고 역전파도 동일하게 됩니다. 따라서 계속해서 각각의 노드가 출력하는 값이 같게 되고 신경망은 제대로 작동하지 못합니다.
 
 <br/>
 
-## 4. Training, Dev, Test set
-
-- Dev set 및 Test set은 같은 분포에서 나온 데이터로 만든다.
-  - 미래에 실제 환경에 적용할 데이터를 기준으로 Dev set, Test set을 선택해야 한다.
-
-
-
-- 과거와 달리, 1,000,000개의 데이터가 있으면 Training set / Dev set / Test set 비율을 6:2:2 대신에 980,000, 10,000, 10,000개의 구성을 한다.
-
-  - Test 사이즈는 시스템의 신뢰도를 측정할 수 있을 만큼 커야 한다.
-
-  
-
-- Dev set 및 Test set에 잘 동작하지만, 실제 환경에서 잘 동작하지 않으면, Dev set 및 Test set를 바꿔야 한다.
-
-  - **가장 중요한 것은 실제 환경에서 잘 동작하는 것이다.**
-
-  
-
-- Training set과 Dev set 및 Test set이 성능이 다르면 2가지 이유가 있을 수 있다.
-
-  - High Variance
-  - Different distribution
-    - 이를 확인하기 위해서 Training 데이터의 일부를 떼어서 Training-dev set으로 실험할 수 있다.
-
-
-
-- 전체 요약
-  - Human error: 4%
-  - Training set error: 7% (Avoidable bias)
-  - Training dev set error: 10%(Variance)
-  - Dev set error: 12%(Data mismatch)
-  - Test error: 15%(degree of overfitting to dev set)
+![](/assets/images/deep-learning/initialization/intialization.png)
 
 <br/>
 
-## 5. Transfer Learning & Multitask Learning
+위의 신경망 한 층을 봅시다. $Z = w1x1 + w2x2 + \dots + wnxn​$ 입니다. 만약에 n이 커지면 어떻게 될까요? 점점 더 많은 항의 합이 되기 때문에 Z가 너무 커지거나 작아질 수 있습니다. 이는 순전파와 역전파 과정에서 값들이 폭발할 수 있습니다. 이를 방지하기 위해 노드의 개수에 따라서 초기화를 다르게 하는 방법들이 고안되었습니다. 그 중 가장 유명한 것이 XIaver와 He의 가중치 초기화 방법입니다.
 
-- Transfer Learning
-  - A, B에서 X(입력)이 동일하다.
-  - A가 B보다 데이터가 많다.
-  - A에서 배운 low level feature가 B를 배우는 데 도움이 된다.
+```python
+# Xiavier initialization
+W = np.random.randn(input_dim, output_dim) * np.sqrt(1/input_dim)
+
+# He initialization
+W = np.random.randn(input_dim, output_dim) * np.sqrt(2/input_dim)
+```
+
+두 가지 방법 모두 입력 노드의 수에 맞게 가중치의 분산을 $Var(w) = \frac{1}{n}$ 또는 $Var(w) = \frac{2}{n}$으로 제어합니다. 일반적으로 Xiavier 가중치 초기화 방법은 잘 작동하지만 relu 활성화 함수에는 He initialization은  잘 작동한다고 알려져 있습니다. relu 활성화 함수는 음수인 부분을 모두 0으로 만들기 때문에 입력 노드의 수의 절반만큼의 수로 가중치를 조정합니다. 다음은 가중치 초기화 방법에 따라서 각 층의 가중치를 출력하는 코드입니다.
+
+```python
+"""
+util.py
+"""
+def relu(X):
+    """
+    relu 함수 구현 - A = relu(Z)
+
+    :param X:
+    :return: A
+    """
+    
+    return np.maximum(X, 0)
 
 
+def sigmoid(X):
+    """
+    sigmoid 함수 구현 - A = sigmoid(X)
 
-- Multi-task Learning
-  - 공유된 Low level feature를 가지는 것이 도움이 된다.
-  - 각 Task에 대한 데이터가 거의 비슷하다.
-  - 큰 규모의 신경망을 운용할 때 작동한다.
+    :param X:
+    :return: A
+    """
+    A = 1 / ((1 + np.exp(-X)) + 1e-5)
+    return A
+```
+
+```python
+"""
+main.py
+"""
+import numpy as np
+from matplotlib import pyplot as plt
+from util import relu, sigmoid
+
+
+# 기본 값 세팅
+x = np.random.randn(1000, 100)
+node_num = 100
+hidden_layer_size = 5
+
+# activation 값 저장
+activations = {}
+
+
+for i in range(hidden_layer_size):
+    if i != 0:
+        x = activations[i - 1]
+
+    # w = np.random.randn(node_num, node_num) * 0.01 # Normal
+    # w = np.random.randn(node_num, node_num) * np.sqrt(1 / node_num) # Xiavier
+    w = np.random.randn(node_num, node_num) * np.sqrt(2 / node_num)  # He
+    a = np.dot(x, w)
+    
+    # z = sigmoid(a)
+    # z = np.tanh(a)
+    z = relu(a)
+
+    activations[i] = z
+
+
+# plot
+plt.figure(figsize=(15, 5))
+
+for i, a in activations.items():
+    plt.subplot(1, len(activations), i + 1)
+    plt.title(str(i + 1) + "-layer")
+    plt.hist(a.flatten(), 30, range=(0, 1))
+plt.show()
+```
+
+다음 코드를 실행하면 Normal 분포로 가중치를 초기화한 경우에는 아래와 같이 몇 층이 지나면 활성화 함수 출력 값이 모두 0이 되어버립니다. 반면에 He 분포로 가중치를 초기화 한 경우에는 0을 제외하고 활성화 함수 출력 값이 여전히 0에서 1사이에 균등하게 분포되어 있는 것을 확인할 수 있습니다.<br/>
+
+**normal**
+
+![](/assets/images/deep-learning/initialization/normal1.png)
+
+<hr/>	
+
+**he**
+
+![](/assets/images/deep-learning/initialization/he1.png)
 
 <br/>
 
-## 6. End-to-End deep learning
+## 2. Normalization
 
-- 핵심 질문: end-to-end deep learning을 하기 위한 충분한 데이터가 있는가?
-  - 장점
-    - Feature를 직접 만들지 않아도 된다.
-  - 단점
-    - 데이터 양을 많이 필요로 한다. 
-    - 수작업 만들 수 있는 유용한 컴포넌트를 사용하지 못한다. 
+Normalization은 오래 걸리는 딥러닝 학습을 빠르게 하기 위한 방법입니다.
 
-
-
-- 상황에 맞게 전략적으로 결정해야 한다.
-  - End-to-End로 학습할 것인지
-  - 단계를 나누어서 학습할 것인지
+- Input Normalization
+- Batch Normalization
+- Weight Normalization
+- Layer Noramlization
 
 <br/>
 
-## 7. 전체 프로세스
+## 3. Activation Function
 
-- 훈련, 검증, 테스트 세트로 나누고 평가 지표를 선정한다.
-- 첫 시스템을 빠르게 개발한다.
-  - Build Fast then iterate
-- bias / variance 분석과 error 분석을 통해서 다음 단계를 정한다.
+Activation 함수는 각 뉴런에서 출력하는 비선형 함수입니다.
+
+- Sigmoid
+- tanh
+- RELU
+- Leaky ReLU
+- MaxOut
+- ELU
+
+<br/>
+
+## 4. Optimizer
+
+Optimizer은 머신러닝 모델이 가중치를 개선하는 방법입니다. 여기에서는 가장 기본적인 경사하강법부터 2015년에 나온 Adam까지 다루겠습니다.
+
+- Stochastic gradient descent
+- Exponential Moving Average
+- Momentum
+- Nesterov Momentum
+- AdaGrad
+- AdaDelta
+- RMSProp
+- Adam
+
+<br/>
+
+## 5. Regularization
+
+Regularization은 머신러닝 모델이 training set에 과적합 되지 않고 모델이 보지 않은 데이터 셋에 좋은 성능을 내도록 하는 것입니다. 즉, 정규화는 모델의 일반적인 성능을 높이려는 시도입니다. 많은 정규화 방법들이 있습니다. 다음은 Deeplearning book 7장에 나오는 정규화 방법을 나열한 것입니다.
+
+- Paramter Norm Penalties
+- Dataset Augmentation
+- Noise Robustness
+- Semi-supervised Learning
+- Multitask Learning
+- Early Stopping
+- Paramter Typing and Paramter Sharing
+- Sparse Representation
+- Bagging and Ensemble Method
+- Dropout(DropConnect, Stochastic Pooling)
+- Adverserial Training
 
