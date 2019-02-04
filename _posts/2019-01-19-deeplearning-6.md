@@ -40,7 +40,7 @@ Machine Learning은 다음 작업 순서를 거친다. 먼저, Training set에 �
 
 <br/>
 
-Bias, Variance를 판단함으로써 어떻게 성능을 최적화 해나가야 하는지 선택할 수 있다..
+Bias, Variance를 판단함으로써 어떻게 성능을 최적화 해나가야 하는지 선택할 수 있다.
 - Human level: 4%
 - Training error: 7%(Avioidable bias)
   - Train bigger model
