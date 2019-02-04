@@ -46,7 +46,7 @@ tags:
   - 우리가 추정하려는 $y = f(x)$에서 모든 $(x, y)$ 쌍을 보고 추정하는 것이 아니기 때문입니다. 
   - $y = f(x)$에서 $f$ 라는 모델을 사용하는 가정 자체에서 정보 손실이 있습니다.
 
-따라서 $y = f(x)$ 를 추정함에 있어서 y = $f^{hat}(x) + \epsilon$, 항상 $\epsilon$ 이 존재할 수 밖에 없습니다. 이를 irreducible error라고 표현합니다.
+따라서 $y = f(x)$ 를 추정함에 있어서 y = $f^{hat}(x) + \epsilon$, 항상 $\epsilon​$ 이 존재할 수 밖에 없습니다. 이를 irreducible error라고 표현합니다.
 
 <p align="center">
     <img src="https://lifesailor.github.io/assets/images/machine-learning/machine-learning-1.png">
