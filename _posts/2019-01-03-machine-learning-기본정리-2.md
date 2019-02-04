@@ -1,5 +1,5 @@
 ---
-title: "머신러닝 개념 정리(2) - estimator"
+title: "머신러닝 개념 정리(2) - Estimator"
 categories:
   - machine learning 
 tags:
@@ -29,11 +29,12 @@ tags:
 </p>
 
 - Consistency(일치성)
+
   - Consistency는 표본의 수가 커질 수록 추정량이 모수에 수렴한다는 것입니다. 이를 수학적으로 표현하면 다음곽 같이 할 수 있습니다.
 
-<p align="center">
-    <img src="https://lifesailor.github.io/assets/images/machine-learning/consistency.png">
-</p>
+  $$\lim_{n \to \infin} Pr(\mid{\hat{\theta_n - \theta} \mid} < \epsilon) = 1​$$
+
+
 
 - Efficiency(효율성)
   - 두 추정량 $\hat{\theta}_1, \hat{\theta}_2$ 이 같은 모수 $\theta$ 에 대한 추정량이라고 할 때, 둘 중 표본편차가 작은 추정량이 더 효율적인 추정량입니다.
