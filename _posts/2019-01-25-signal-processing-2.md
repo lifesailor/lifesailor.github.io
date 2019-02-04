@@ -211,7 +211,7 @@ plt.show()
   - 둘은 Nyquist Frequency에 대해서 대칭이다.
   - 만약에 Negative Frequency를 고려하지 않으면 Fourier Transform을 하고 나서 진폭이 반이 된다. 따라서 이를 고려해야 한다.
 - Amplitude vs Power Spectrum
-  - $Power = Amplitude^{2}$
+  - $Power = Amplitude^{2}​$
 - Passeval's Theorem
   - Conservation of enegy in time domain and in frequency domain are the same.
 
@@ -297,6 +297,7 @@ plt.show()
   - 하지만 계산이 빨라지는 것이지 Output은 바뀌지 않는다.
 - FFT on matrices
   - 여러 채널의 신호를 한 번에 Fourier Transform 할 수 있다.
+- DTFT, FFT 모두 Fourier Transform 과정에서 Phase 및 허수 값을 버리면 역변환을 할 수 없다.
 
 ```python
 srate = 1000
