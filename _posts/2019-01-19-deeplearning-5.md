@@ -7,13 +7,11 @@ tags:
   - deep learning
 ---
 
-앞으로 딥러닝을 공부하면서 하나씩 정리해보고자 합니다. 딥러닝 개념이 정리된 블로그는 많지만 구현과 함께 정리된 곳은 많지 않아서 구현을 중심으로 정리할 생각입니다. 이 글을 작성하는 데 Andrew Ng 교수님의 [deeplearning.ai](https://www.coursera.org/courses?query=deeplearning.ai) 강의 및 Standford의 [CS231n](http://cs231n.stanford.edu/) 강의와 Ian Goodfellow의 [deeplearning book](http://www.deeplearningbook.org/)를 참고했습니다. 
+글 작성에 앞서 Andrew Ng 교수님의 [deeplearning.ai](https://www.coursera.org/courses?query=deeplearning.ai) 강의 및 Standford의 [CS231n](http://cs231n.stanford.edu/) 강의와 Ian Goodfellow의 [deeplearning book](http://www.deeplearningbook.org/)를 참고했다는 것을 밝힙니다. 
 
 <br/>
 
-이전 글에서는 신경망의 구조를 중심으로 작성했습니다. Logistic Regression은 은닉층이 없는 신경망, Two Layer Network는 은닉층이 한 층이 있는 신경망, Deep Neural Newtork는 은닉층이 여러 개 있는 신경망으로 정리했습니다. 
-
-하지만 단지 깊어진다고 해서 신경망의 성능이 좋아지는 것은 아닙니다. 깊은 신경망이 잘 작동하기 위해서는 여러가지 부수적인 스킬이 필요합니다. 이 글에서는 신경망의 성능을 최적화하는 여러가지 방법에 대해서 정리하겠습니다. 순서대로
+이전 글에서는 신경망의 구조를 중심으로 작성했습니다. Logistic Regression은 은닉층이 없는 신경망, Two Layer Network는 은닉층이 한 층이 있는 신경망, Deep Neural Newtork는 은닉층이 여러 개 있는 신경망으로 정리했습니다. 하지만 단지 깊어진다고 해서 신경망의 성능이 좋아지는 것은 아닙니다. 깊은 신경망이 잘 작동하기 위해서는 여러가지 부수적인 스킬이 필요합니다. 이 글에서는 신경망의 성능을 최적화하는 여러가지 방법에 대해서 정리하겠습니다. 순서대로
 
 - Weight Initialization
 - Normalization
@@ -26,8 +24,6 @@ tags:
 <br/>
 
 ## 1. Weight Initialization
-
-<br/>
 
 신경망의 가중치를 어떻게 초기화하느냐에 따라서 성능이 많이 달라집니다. 하나의 예로 초기 가중치를 각 층의 노드마다 같게 설정하면 모든 신경망의 가중치가 같게 순전파 되고 역전파도 동일하게 됩니다. 따라서 계속해서 각각의 노드가 출력하는 값이 같게 되고 신경망은 제대로 작동하지 못합니다.
 
@@ -135,7 +131,7 @@ plt.show()
 
 ## 2. Normalization
 
-Normalization은 오래 걸리는 딥러닝 학습을 빠르게 하기 위한 방법입니다.
+Normalization은 오래 걸리는 딥러닝 학습을 빠르게 하기 위한 방법입니다. 
 
 - Input Normalization
 - Batch Normalization
