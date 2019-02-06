@@ -1,5 +1,5 @@
 ---
-title: "패스트 캠퍼스 투자 강의(1) 투자관"
+title: "패스트 캠퍼스 투자 강의(1) - 투자관"
 categories:
   - investment
 tags:
