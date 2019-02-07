@@ -1,7 +1,7 @@
 ---
 title: "의료 인공지능"
 categories:
-  - book
+  - biology and medicine
 tags:
   - book
   - biology
