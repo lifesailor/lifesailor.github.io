@@ -1,7 +1,7 @@
 ---
 title: "List of unsolved problems in biology"
 categories:
-  - biology
+  - biology and medicine
 tags:
   - paper
   - biology

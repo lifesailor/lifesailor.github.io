@@ -1,7 +1,7 @@
 ---
 title: "Opportunities and obstacles for deep learning in biology and medicine"
 categories:
-  - biology
+  - biology and medicine
 tags:
   - paper
   - biology
