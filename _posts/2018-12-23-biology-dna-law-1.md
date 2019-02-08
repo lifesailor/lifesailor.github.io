@@ -1,7 +1,7 @@
 ---
 title: "DNA의 법칙(1) - 세포의 탄생"
 categories:
-  - biology and medicine
+  - biology
 tags:
   - book
   - biology

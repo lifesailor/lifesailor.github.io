@@ -1,7 +1,7 @@
 ---
 title: "DNA의 법칙(2) - 다세포 생물의 탄생"
 categories:
-  - biology and medicine
+  - biology
 tags:
   - book
   - biology
