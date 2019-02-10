@@ -142,10 +142,18 @@ Coursera의 [How to Win a Data Science Competition](https://www.coursera.org/lea
   - 다른 문제는 다른 feature engineering 작업이 필요하다.
     - 다 알 수는 없으니 과거 문제를 보고 사람들이 어떻게 했는지 파악한다.
 
+<p align="center">
+    <img src="https://lifesailor.github.io/assets/images/kaggle/anova-feature.png">
+</p>
+
 <br/>
 
 - Model
   - 문제마다 다른 모델이 좋다.
+
+<p align="center">
+    <img src="https://lifesailor.github.io/assets/images/kaggle/anova-modeling.png">
+</p>
 
 <br/>
 
@@ -178,6 +186,10 @@ Coursera의 [How to Win a Data Science Competition](https://www.coursera.org/lea
   - 다른 사람들이 어떻게 했는지 본다.
   - 사람에게 질문한다.
   - Notebook을 함수화한다.
+
+<p align="center">
+    <img src="https://lifesailor.github.io/assets/images/kaggle/anova-tip.png">
+</p>
 
 
 
