@@ -1,5 +1,5 @@
 ---
-title: How to Win a Data Science Competition - Week 4 정리(Tips and Tricks)
+title: How to Win a Data Science Competition - Week 4 - Ensemble
 categories:
   - kaggle
 tags:

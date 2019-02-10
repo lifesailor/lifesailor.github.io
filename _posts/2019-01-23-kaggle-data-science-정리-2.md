@@ -1,5 +1,5 @@
 ---
-title: How to Win a Data Science Competition - Week 4 정리(Hyperparameter Tuning)
+title: How to Win a Data Science Competition - Week 4 - Hyperparameter Tuning
 categories:
   - kaggle
 tags:
